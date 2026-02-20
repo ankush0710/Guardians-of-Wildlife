@@ -45,6 +45,8 @@ const Navbar = () => {
               <p className="font: font-body text-white text-sm">CONTACT US</p>
             </Link>
           </div>
+
+          {/* For mobile view hammburger button will display*/}
           <button
             className="lg:hidden text-white"
             onClick={() => {
@@ -56,10 +58,65 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* For mobile view hammburger button will display*/}
-      <div>
-        
+      {/* links for mobile view */}
+      {isOpen && (
+        <div className="md:hidden w-full h-full bg-[#111F35] flex flex-col gap-12 items-center py-10">
+        <Link
+          className="font: font-body text-white text-3xl font-medium"
+          to="/"
+          onClick={() => {
+            setIsOpen(false);
+          }}
+        >
+          HOME
+        </Link>
+        <Link
+          className="font: font-body text-white text-3xl font-medium"
+          to="/Wildlife"
+          onClick={() => {
+            setIsOpen(false);
+          }}
+        >
+          WILDLIFE
+        </Link>
+        <Link
+          className="font: font-body text-white text-3xl font-medium"
+          to="/Program"
+          onClick={() => {
+            setIsOpen(false);
+          }}
+        >
+          PROGRAM
+        </Link>
+        <Link
+          className="font: font-body text-white text-3xl font-medium"
+          to="/JoinOurTeam"
+          onClick={() => {
+            setIsOpen(false);
+          }}
+        >
+          JOIN OUR TEAM
+        </Link>
+        <Link
+          className="font: font-body text-white text-3xl font-medium"
+          to="/AboutUs"
+          onClick={() => {
+            setIsOpen(false);
+          }}
+        >
+          ABOUT US
+        </Link>
+        <Link
+          className="font: font-body text-white text-3xl font-medium"
+          to="/ContactUs"
+          onClick={() => {
+            setIsOpen(false);
+          }}
+        >
+          CONTACT US
+        </Link>
       </div>
+      )};
     </>
   );
 };
