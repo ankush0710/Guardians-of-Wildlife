@@ -1,1 +1,15 @@
+@font-face {
+    font-family: Roboto;
+    src: url("./fonts/Roboto_Condensed-Regular.ttf");
+}
+@font-face {
+    font-family: Playfare;
+    src: url("./fonts/PlayfairDisplay-Regular.ttf");
+}
+
 @import "tailwindcss";
+
+@theme{
+    --font-heading: Roboto, "sans-serif";
+    --font-body: Playfare, "sans-serif";
+}
