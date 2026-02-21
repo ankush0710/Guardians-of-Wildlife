@@ -32,7 +32,7 @@ const Navbar = () => {
               <h1 className="font: font-heading font-semibold text-white text-xl text-center">
                 Guardians Of Wildlife.
               </h1>
-              <p className="font: font-heading font-medium text-white text-xs text-center">
+              <p className="font: font-body font-medium text-white text-xs text-center">
                 Protect Wildlife, Preserve Life
               </p>
             </div>
