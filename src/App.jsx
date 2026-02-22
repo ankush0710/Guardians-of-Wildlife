@@ -4,12 +4,17 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import {faInstagram, faFacebook, faTwitter, faLinkedin} from '@fortawesome/free-brands-svg-icons';
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
+import Dashboard from "./Pages/Dashboard";
 
 function App() {
   library.add(faInstagram, faFacebook, faTwitter, faLinkedin);
   return (
     <>
       <Navbar />
+        <Routes>
+          <Route path="/" element={<Dashboard/>}/>
+          <Route path="/Home" element={<Dashboard/>}/>
+        </Routes>
       <Footer />
     </>
   )
