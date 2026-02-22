@@ -6,7 +6,6 @@ const Footer = () => {
   return (
     <>
       <footer className="bg-[#111F35] min-w-screen flex flex-col justify-center gap-10 py-18">
-
         {/* Website name appears in the middle section */}
         <div id="footer-logo" className="flex flex-col justify-center">
           <h1 className="font: font-heading font-semibold text-white text-2xl text-center">
@@ -32,7 +31,10 @@ const Footer = () => {
         </div>
 
         {/* Socal media links section  */}
-        <div id="social-media" className="flex flex-col justify-center items-center gap-4">
+        <div
+          id="social-media"
+          className="flex flex-col justify-center items-center gap-4"
+        >
           <h1 className="font-heading text-2xl text-white font-semibold">
             Social Media
           </h1>
@@ -65,26 +67,72 @@ const Footer = () => {
         </div>
 
         {/* all pages link section  */}
-        <div id="container" className="flex justify-around px-10">
+        <div id="container" className="flex justify-around px-2">
           <div id="pages-container" className="flex flex-col gap-4 text-start">
             <h1 className="font-heading text-2xl text-white font-semibold">
-            Pages
-          </h1>
-          <div className="text-start">
-            <ul  className="flex flex-col gap-2">
-              <Link to="/"><li className="font: font-body text-white text-lg hover:text-[#FFEDC7]">Home</li></Link>
-              <Link to="/wildlife"><li className="font: font-body text-white text-lg hover:text-[#FFEDC7]">Wildlife</li></Link>
-              <Link to="/programs"><li className="font: font-body text-white text-lg hover:text-[#FFEDC7]">Programs</li></Link>
-              <Link to="/blogs"><li className="font: font-body text-white text-lg hover:text-[#FFEDC7]">Blogs</li></Link>
-              <Link to="/join-our-team"><li className="font: font-body text-white text-lg hover:text-[#FFEDC7]">Join Our Team</li></Link>
-              <Link to="/contact-us"><li className="font: font-body text-white text-lg hover:text-[#FFEDC7]">Contact Us</li></Link>
-            </ul>
+              Pages
+            </h1>
+            <div className="text-start">
+              <ul className="flex flex-col gap-3">
+                <Link to="/">
+                  <li className="font: font-body text-white text-md hover:text-[#FFEDC7]">
+                    Home
+                  </li>
+                </Link>
+                <Link to="/wildlife">
+                  <li className="font: font-body text-white text-md hover:text-[#FFEDC7]">
+                    Wildlife
+                  </li>
+                </Link>
+                <Link to="/programs">
+                  <li className="font: font-body text-white text-md hover:text-[#FFEDC7]">
+                    Programs
+                  </li>
+                </Link>
+                <Link to="/blogs">
+                  <li className="font: font-body text-white text-md hover:text-[#FFEDC7]">
+                    Blogs
+                  </li>
+                </Link>
+                <Link to="/join-our-team">
+                  <li className="font: font-body text-white text-md hover:text-[#FFEDC7]">
+                    Join Our Team
+                  </li>
+                </Link>
+                <Link to="/contact-us">
+                  <li className="font: font-body text-white text-md hover:text-[#FFEDC7]">
+                    Contact Us
+                  </li>
+                </Link>
+              </ul>
+            </div>
           </div>
+          <div id="queries" className="text-start">
+            <h1 className="font-heading text-2xl text-white font-semibold">
+              Queries
+            </h1>
+            <p className="font: font-body text-white text-sm pt-3">Mail us at: </p>
+            <span className="font: font-body text-white text-xs">
+              example@guardiansofwildlife.org
+            </span>
+            <p className="font: font-body text-white text-sm pt-4">Call us at: </p>
+            <span className="font: font-body text-white text-xs">
+              +91 1234567890,
+              +01 2736535177
+            </span>
+            <p className="font: font-body text-white text-sm pt-4">For Media:</p>
+            <span className="font: font-body text-white text-xs">
+              media@guardiansofwildlife.org
+            </span>
           </div>
-          <div id="queries">
-             <h1 className="font-heading text-2xl text-white font-semibold">
-            Queries
-          </h1>
+        </div>
+        <div>
+          <p className="font: font-body text-white text-sm text-center py-4">
+            &copy; {new Date().getFullYear()} Guardians of Wildlife. All rights reserved.
+          </p>
+          <div className="flex gap-3 justify-center font:font-body text-white font-sm">
+            <p>Terms & Conditons</p>
+            <p>Privacy Policy</p>
           </div>
         </div>
       </footer>
