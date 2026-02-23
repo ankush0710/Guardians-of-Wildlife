@@ -79,32 +79,32 @@ const Footer = () => {
               <div className="text-start">
                 <ul className="flex flex-col gap-3">
                   <Link to="/">
-                    <li className="font-body text-white text-md hover:text-[#FFEDC7]">
+                    <li className="font-body text-white text-md hover:text-[#FFC300]">
                       Home
                     </li>
                   </Link>
                   <Link to="/wildlife">
-                    <li className="font-body text-white text-md hover:text-[#FFEDC7]">
+                    <li className="font-body text-white text-md hover:text-[#FFC300]">
                       Wildlife
                     </li>
                   </Link>
                   <Link to="/programs">
-                    <li className="font-body text-white text-md hover:text-[#FFEDC7]">
+                    <li className="font-body text-white text-md hover:text-[#FFC300]">
                       Programs
                     </li>
                   </Link>
                   <Link to="/blogs">
-                    <li className="font-body text-white text-md hover:text-[#FFEDC7]">
+                    <li className="font-body text-white text-md hover:text-[#FFC300]">
                       Blogs
                     </li>
                   </Link>
                   <Link to="/join-our-team">
-                    <li className="font-body text-white text-md hover:text-[#FFEDC7]">
+                    <li className="font-body text-white text-md hover:text-[#FFC300]">
                       Join Our Team
                     </li>
                   </Link>
                   <Link to="/contact-us">
-                    <li className="font-body text-white text-md hover:text-[#FFEDC7]">
+                    <li className="font-body text-white text-md hover:text-[#FFC300]">
                       Contact Us
                     </li>
                   </Link>
@@ -187,7 +187,7 @@ const Footer = () => {
                   id="default-checkbox"
                   type="checkbox"
                   value=""
-                  className="w-8 h-8 border-2 border-default-medium border-[#6594B1] rounded-xs bg-tarnsparent focus:ring-2 focus:ring-brand-soft"
+                  className="w-8 h-8 border-2 border-default-medium border-[#6594B1] rounded-xs focus:ring-2 focus:ring-brand-soft"
                 />
                 <label
                   for="default-checkbox"
