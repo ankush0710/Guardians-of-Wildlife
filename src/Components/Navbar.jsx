@@ -19,10 +19,10 @@ const Navbar = () => {
             className="hidden lg:flex items-center gap-4"
           >
             <Link to="/">
-              <p className="font: font-body text-white text-sm hover:text-[#FFEDC7]">HOME</p>
+              <p className="font: font-body text-white text-sm hover:text-[#FFC300]">HOME</p>
             </Link>
             <Link to="/Program">
-              <p className="font: font-body text-white text-sm hover:text-[#FFEDC7]">PROGRAM</p>
+              <p className="font: font-body text-white text-sm hover:text-[#FFC300]">PROGRAM</p>
             </Link>
           </div>
 
@@ -44,12 +44,12 @@ const Navbar = () => {
             className="hidden lg:flex items-center gap-4"
           >
             <Link to="/JoinOurTeam">
-              <p className="font: font-body text-white text-sm hover:text-[#FFEDC7]">
+              <p className="font: font-body text-white text-sm hover:text-[#FFC300]">
                 JOIN OUT TEAM
               </p>
             </Link>
             <Link to="/ContactUs">
-              <p className="font: font-body text-white text-sm hover:text-[#FFEDC7]">CONTACT US</p>
+              <p className="font: font-body text-white text-sm hover:text-[#FFC300]">CONTACT US</p>
             </Link>
           </div>
 
@@ -68,10 +68,10 @@ const Navbar = () => {
 
       {/* links for mobile view */}
       {isOpen && (
-          <div className=" relative w-full h-screen bg-[#111F35] py-10 lg:hidden">
+          <div className="relative w-full h-screen bg-[#111F35] py-10 transition duration-400 lg:hidden">
 
             {/* close button only when click on hamburger button  */}
-            <button className="absolute top-4 right-4 text-white hover:text-[#FFEDC7] transition duration-300 lg:hidden">
+            <button className="absolute top-4 right-4 text-white hover:text-[#FFC300] transition duration-300 lg:hidden">
               <FaXmark size={30}
                 onClick={() => setIsOpen(false)}
               />
@@ -80,7 +80,7 @@ const Navbar = () => {
             {/* All pages names and link in mobile view  */}
             <div className="flex flex-col gap-8 items-center mt-10">
               <Link
-              className="font: font-body text-white text-2xl font-medium hover:text-[#FFEDC7]"
+              className="font: font-body text-white text-2xl font-medium hover:text-[#FFC300]"
               to="/"
               onClick={() => {
                 setIsOpen(false);
@@ -89,7 +89,7 @@ const Navbar = () => {
               HOME
             </Link>
             <Link
-              className="font: font-body text-white text-2xl font-medium hover:text-[#FFEDC7]"
+              className="font: font-body text-white text-2xl font-medium hover:text-[#FFC300]"
               to="/Wildlife"
               onClick={() => {
                 setIsOpen(false);
@@ -98,7 +98,7 @@ const Navbar = () => {
               WILDLIFE
             </Link>
             <Link
-              className="font: font-body text-white text-2xl font-medium hover:text-[#FFEDC7]"
+              className="font: font-body text-white text-2xl font-medium hover:text-[#FFC300]"
               to="/Program"
               onClick={() => {
                 setIsOpen(false);
@@ -107,7 +107,7 @@ const Navbar = () => {
               PROGRAM
             </Link>
             <Link
-              className="font: font-body text-white text-2xl font-medium hover:text-[#FFEDC7]"
+              className="font: font-body text-white text-2xl font-medium hover:text-[#FFC300]"
               to="/JoinOurTeam"
               onClick={() => {
                 setIsOpen(false);
@@ -116,7 +116,7 @@ const Navbar = () => {
               JOIN OUR TEAM
             </Link>
             <Link
-              className="font: font-body text-white text-2xl font-medium hover:text-[#FFEDC7]"
+              className="font: font-body text-white text-2xl font-medium hover:text-[#FFC300]"
               to="/AboutUs"
               onClick={() => {
                 setIsOpen(false);
@@ -125,7 +125,7 @@ const Navbar = () => {
               ABOUT US
             </Link>
             <Link
-              className="font: font-body text-white text-2xl font-medium hover:text-[#FFEDC7]"
+              className="font: font-body text-white text-2xl font-medium hover:text-[#FFC300]"
               to="/ContactUs"
               onClick={() => {
                 setIsOpen(false);
