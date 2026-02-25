@@ -66,6 +66,7 @@ const Footer = () => {
           </div>
         </div>
 
+          {/* pages links and message form  */}
         <div className="md:flex md:justify-around md:px-10 md:overflow-x-hidden md:items-center">
           {/* all pages link section  */}
           <div id="container" className="flex justify-around gap-10 flex-1">
@@ -79,32 +80,32 @@ const Footer = () => {
               <div className="text-start">
                 <ul className="flex flex-col gap-3">
                   <Link to="/">
-                    <li className="font-body text-white text-md hover:text-[#FFC300]">
+                    <li className="font-body text-white text-md hover:text-[#ECE7D1]">
                       Home
                     </li>
                   </Link>
                   <Link to="/wildlife">
-                    <li className="font-body text-white text-md hover:text-[#FFC300]">
+                    <li className="font-body text-white text-md hover:text-[#ECE7D1]">
                       Wildlife
                     </li>
                   </Link>
                   <Link to="/programs">
-                    <li className="font-body text-white text-md hover:text-[#FFC300]">
+                    <li className="font-body text-white text-md hover:text-[#ECE7D1]">
                       Programs
                     </li>
                   </Link>
                   <Link to="/blogs">
-                    <li className="font-body text-white text-md hover:text-[#FFC300]">
+                    <li className="font-body text-white text-md hover:text-[#ECE7D1]">
                       Blogs
                     </li>
                   </Link>
                   <Link to="/join-our-team">
-                    <li className="font-body text-white text-md hover:text-[#FFC300]">
+                    <li className="font-body text-white text-md hover:text-[#ECE7D1]">
                       Join Our Team
                     </li>
                   </Link>
                   <Link to="/contact-us">
-                    <li className="font-body text-white text-md hover:text-[#FFC300]">
+                    <li className="font-body text-white text-md hover:text-[#ECE7D1]">
                       Contact Us
                     </li>
                   </Link>
