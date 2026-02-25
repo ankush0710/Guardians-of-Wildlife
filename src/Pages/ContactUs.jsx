@@ -1,7 +1,20 @@
 import React from "react";
+import { useFormik } from 'formik';
 
 const ContactUs = () => {
-  const state = {};
+
+    const contactDetails = useFormik({
+        initialValues: {
+            firstName: " ",
+            lastName: " ",
+            email: " ",
+            contactNumber: " ",
+            message: " "
+        },
+        onSubmit: values => {
+            console.log("form data", values);
+        }
+    })
 
   return (
     <>
@@ -85,21 +98,23 @@ const ContactUs = () => {
             id="contact-form"
             className="bg-[#ECE7D1] rounded-xl flex flex-col py-15 px-10 mx-3 my-10 relative md:w-auto lg:w-2xl md:shadow-lg"
           >
-            <form action="">
+            <form onSubmit={contactDetails.handleSubmit}>
               <div className="md:flex md:gap-4">
 
                 {/* input box for first name  */}
                 <div className="relative z-0 w-full mb-5 group md:flex-1">
                   <input
                     type="text"
-                    name="first_name"
-                    id="first_name"
+                    name="firstName"
+                    id="firstName"
                     className="block py-2.5 px-0 w-full text-md bg-transparent border-0 border-b-2 border-default-medium border-[#8A7650] appearance-none focus:outline-none focus:ring-0 focus:border-[#562F00] peer"
                     placeholder=" "
+                    onChange={contactDetails.handleChange}
+                    value={contactDetails.values.firstName}
                     required
                   />
                   <label
-                    for="first_name"
+                    for="firstName"
                     className="absolute font-body text-md text-[#8A7650] duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
                   >
                     First Name
@@ -110,14 +125,16 @@ const ContactUs = () => {
                 <div className="relative z-0 w-full mb-5 group md:flex-1">
                   <input
                     type="text"
-                    name="last_name"
-                    id="last_name"
+                    name="lastName"
+                    id="lastName"
                     className="block py-2.5 px-0 w-full text-md bg-transparent border-0 border-b-2 border-default-medium border-[#8A7650] appearance-none focus:outline-none focus:ring-0 focus:border-[#562F00] peer"
                     placeholder=" "
+                    onChange= {contactDetails.handleChange}
+                    value={contactDetails.values.lastName}
                     required
                   />
                   <label
-                    for="last_name"
+                    for="lastName"
                     className="absolute font-body text-md text-[#8A7650] duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
                   >
                     Last Name
@@ -130,13 +147,15 @@ const ContactUs = () => {
                 <input
                   type="email"
                   name="email"
-                  id="floating_email"
+                  id="email"
                   class="block py-2.5 px-0 w-full text-md bg-transparent border-0 border-b-2 border-default-medium border-[#8A7650] appearance-none focus:outline-none focus:ring-0 focus:border-[#562F00] peer"
                   placeholder=" "
+                  onChange= {contactDetails.handleChange}
+                  value={contactDetails.values.email}
                   required
                 />
                 <label
-                  for="message"
+                  for="email"
                   class="absolute font-body text-md text-[#8A7650] duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
                 >
                   Email
@@ -146,15 +165,17 @@ const ContactUs = () => {
               {/* input box for contact number  */}
               <div className="relative z-0 w-full mb-5 mt-3 group">
                 <input
-                  type="number"
-                  name="number"
-                  id="floating_number"
+                  type="contactNumber"
+                  name="contactNumber"
+                  id="number"
                   class="block py-2.5 px-0 w-full text-md bg-transparent border-0 border-b-2 border-default-medium border-[#8A7650] appearance-none focus:outline-none focus:ring-0 focus:border-[#562F00] peer"
                   placeholder=" "
+                  onChange={contactDetails.handleChange}
+                  value={contactDetails.values.contactNumber}
                   required
                 />
                 <label
-                  for="floating number"
+                  for="contactNumber"
                   class="absolute font-body text-md text-[#8A7650] duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
                 >
                   Contact Number
@@ -165,9 +186,12 @@ const ContactUs = () => {
               <div className="relative z-0 w-full mb-5 mt-3 group">
                 <textarea
                   id="message"
+                  name="message"
                   rows="4"
                   className="bg-neutral-secondary-medium border-2 border-default-medium border-[#8A7650] text-md text-[#562F00] text-semibold trounded-base focus:ring-brand focus:outline-none focus:border-[#562F00] block w-full p-3.5 shadow-xs placeholder:text-body"
                   placeholder="Your Query for us ...."
+                  onChange={contactDetails.handleChange}
+                  value={contactDetails.values.message}
                 ></textarea>
               </div>
 
@@ -191,7 +215,7 @@ const ContactUs = () => {
               {/* form submitt button  */}
               <div className="absolute right-0 px-10">
                 <button
-                  type="button"
+                  type="submit"
                   className="text-[#8A7650] font-semibold font-body bg-transparent border-2 border-[#8A7650] px-8 py-2 rounded-full hover:text-[#562F00] hover:bg-[#8A7650] hover:border-2 hover:border-[#562F00] hover:duration-600"
                 >
                   Submit
