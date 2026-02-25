@@ -1,20 +1,55 @@
 import React from "react";
-import { useFormik } from 'formik';
+import { useFormik } from "formik";
 
 const ContactUs = () => {
+  // this method is to capture the user input
+  const initialValues = {
+    firstName: " ",
+    lastName: " ",
+    email: " ",
+    contactNumber: " ",
+    message: " ",
+  };
 
-    const contactDetails = useFormik({
-        initialValues: {
-            firstName: " ",
-            lastName: " ",
-            email: " ",
-            contactNumber: " ",
-            message: " "
-        },
-        onSubmit: values => {
-            console.log("form data", values);
-        }
-    })
+  // this method is to captured the input on click of a submit button
+  const onSubmit = (values) => {
+    console.log("form data", values);
+  };
+
+  // this method is for validate the inpit field and display error message
+  const validate = (values) => {
+    let errors = {};
+
+    if (!values.firstName) {
+      errors.firstName = "* Please enter first name";
+    }
+
+    if (!values.lastName) {
+      errors.lastName = "* Please enter last name";
+    }
+
+    if (!values.email) {
+      errors.email = "* Please enter email";
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
+      errors.email = "Invalid email address";
+    }
+
+    if (!values.contactNumber) {
+      errors.contactNumber = "* Please enter contact number";
+    }
+
+    if (!values.message) {
+      errors.message = "* Please enter your query for us";
+    }
+
+    return errors;
+  };
+
+  const contactDetails = useFormik({
+    initialValues,
+    onSubmit,
+    validate,
+  });
 
   return (
     <>
@@ -100,7 +135,6 @@ const ContactUs = () => {
           >
             <form onSubmit={contactDetails.handleSubmit}>
               <div className="md:flex md:gap-4">
-
                 {/* input box for first name  */}
                 <div className="relative z-0 w-full mb-5 group md:flex-1">
                   <input
@@ -113,6 +147,12 @@ const ContactUs = () => {
                     value={contactDetails.values.firstName}
                     required
                   />
+                  {contactDetails.errors.firstName ? (
+                    <p className="text-red-500 font-semibold text-md">
+                      {contactDetails.errors.firstName}
+                    </p>
+                  ) : null}
+
                   <label
                     for="firstName"
                     className="absolute font-body text-md text-[#8A7650] duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
@@ -129,10 +169,16 @@ const ContactUs = () => {
                     id="lastName"
                     className="block py-2.5 px-0 w-full text-md bg-transparent border-0 border-b-2 border-default-medium border-[#8A7650] appearance-none focus:outline-none focus:ring-0 focus:border-[#562F00] peer"
                     placeholder=" "
-                    onChange= {contactDetails.handleChange}
+                    onChange={contactDetails.handleChange}
                     value={contactDetails.values.lastName}
                     required
                   />
+                  {contactDetails.errors.lastName ? (
+                    <p className="text-red-500 font-semibold text-md">
+                      {contactDetails.errors.lastName}
+                    </p>
+                  ) : null}
+
                   <label
                     for="lastName"
                     className="absolute font-body text-md text-[#8A7650] duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
@@ -150,10 +196,16 @@ const ContactUs = () => {
                   id="email"
                   class="block py-2.5 px-0 w-full text-md bg-transparent border-0 border-b-2 border-default-medium border-[#8A7650] appearance-none focus:outline-none focus:ring-0 focus:border-[#562F00] peer"
                   placeholder=" "
-                  onChange= {contactDetails.handleChange}
+                  onChange={contactDetails.handleChange}
                   value={contactDetails.values.email}
                   required
                 />
+                {contactDetails.errors.email ? (
+                  <p className="text-red-500 font-semibold text-md">
+                    {contactDetails.errors.email}
+                  </p>
+                ) : null}
+
                 <label
                   for="email"
                   class="absolute font-body text-md text-[#8A7650] duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
@@ -174,6 +226,12 @@ const ContactUs = () => {
                   value={contactDetails.values.contactNumber}
                   required
                 />
+                {contactDetails.errors.contactNumber ? (
+                  <p className="text-red-500 font-semibold text-md">
+                    {contactDetails.errors.contactNumber}
+                  </p>
+                ) : null}
+
                 <label
                   for="contactNumber"
                   class="absolute font-body text-md text-[#8A7650] duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
@@ -194,6 +252,11 @@ const ContactUs = () => {
                   value={contactDetails.values.message}
                 ></textarea>
               </div>
+              {contactDetails.errors.message ? (
+                <p className="text-red-500 font-semibold text-md">
+                  {contactDetails.errors.message}
+                </p>
+              ) : null}
 
               {/* checkbox for terms and condition  */}
               <div className="flex items-start mb-4 mt-3">
