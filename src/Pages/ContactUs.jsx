@@ -45,7 +45,7 @@ const ContactUs = () => {
 
     // this method is to captured the input on click of a submit button
     onSubmit: (values) => {
-      // console.log("form data", values);
+      console.log("form data", values);
     },
   });
 
@@ -141,9 +141,7 @@ const ContactUs = () => {
                   id="firstName"
                   className="block py-2.5 px-0 w-full text-md bg-transparent border-0 border-b-2 border-default-medium border-[#8A7650] appearance-none focus:outline-none focus:ring-0 focus:border-[#562F00] peer"
                   placeholder=""
-                  onChange={contactDetails.handleChange}
-                  onBlur={contactDetails.handleBlur}
-                  value={contactDetails.values.firstName}
+                  {...contactDetails.getFieldProps('firstName')}
                 />
                   {(contactDetails.touched.firstName && contactDetails.errors.firstName) ? (<p className='text-red-500 text-sm mt-1'>{contactDetails.errors.firstName}</p>) : null}
                 <label
@@ -162,9 +160,7 @@ const ContactUs = () => {
                   id="lastName"
                   className="block py-2.5 px-0 w-full text-md bg-transparent border-0 border-b-2 border-default-medium border-[#8A7650] appearance-none focus:outline-none focus:ring-0 focus:border-[#562F00] peer"
                   placeholder=""
-                  onChange={contactDetails.handleChange}
-                  onBlur={contactDetails.handleBlur}
-                  value={contactDetails.values.lastName}
+                  {...contactDetails.getFieldProps('lastName')}
                 />
                   {(contactDetails.touched.lastName && contactDetails.errors.lastName) ? (<p className='text-red-500 text-sm mt-1'>{contactDetails.errors.lastName}</p>) : null}
                 <label
@@ -184,9 +180,7 @@ const ContactUs = () => {
                   id="email"
                   className="block py-2.5 px-0 w-full text-md bg-transparent border-0 border-b-2 border-default-medium border-[#8A7650] appearance-none focus:outline-none focus:ring-0 focus:border-[#562F00] peer"
                   placeholder=""
-                  onChange={contactDetails.handleChange}
-                  onBlur={contactDetails.handleBlur}
-                  value={contactDetails.values.email}
+                  {...contactDetails.getFieldProps('email')}
                 />
                   {(contactDetails.touched.email && contactDetails.errors.email) ? (<p className='text-red-500 text-sm mt-1'>{contactDetails.errors.email}</p>) : null}
                 <label
@@ -205,9 +199,7 @@ const ContactUs = () => {
                   id="contactNumber"
                   className="block py-2.5 px-0 w-full text-md bg-transparent border-0 border-b-2 border-default-medium border-[#8A7650] appearance-none focus:outline-none focus:ring-0 focus:border-[#562F00] peer"
                   placeholder=""
-                  onChange={contactDetails.handleChange}
-                  onBlur={contactDetails.handleBlur}
-                  value={contactDetails.values.contactNumber}
+                  {...contactDetails.getFieldProps('contactNumber')}
                 />
                   {(contactDetails.touched.contactNumber && contactDetails.errors.contactNumber) ? (<p className='text-red-500 text-sm mt-1'>{contactDetails.errors.contactNumber}</p>) : null}
                 <label
@@ -226,9 +218,7 @@ const ContactUs = () => {
                   rows="4"
                   className="bg-neutral-secondary-medium border-2 border-default-medium border-[#8A7650] text-md text-[#562F00] text-semibold trounded-base focus:ring-brand focus:outline-none focus:border-[#562F00] block w-full p-3.5 shadow-xs placeholder:text-body"
                   placeholder="Your Query for us ...."
-                  onChange={contactDetails.handleChange}
-                  onBlur={contactDetails.handleBlur}
-                  value={contactDetails.values.message}
+                  {...contactDetails.getFieldProps('message')}
                 ></textarea>
                 {(contactDetails.touched.message && contactDetails.errors.message) ? (<p className='text-red-500 text-sm mt-1'>{contactDetails.errors.message}</p>) : null}
               </div>
