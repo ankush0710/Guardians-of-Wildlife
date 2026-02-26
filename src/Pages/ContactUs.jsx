@@ -2,53 +2,51 @@ import React from "react";
 import { useFormik } from "formik";
 
 const ContactUs = () => {
-  // this method is to capture the user input
-  const initialValues = {
-    firstName: " ",
-    lastName: " ",
-    email: " ",
-    contactNumber: " ",
-    message: " ",
-  };
-
-  // this method is to captured the input on click of a submit button
-  const onSubmit = (values) => {
-    console.log("form data", values);
-  };
-
-  // this method is for validate the inpit field and display error message
-  const validate = (values) => {
-    let errors = {};
-
-    if (!values.firstName) {
-      errors.firstName = "* Please enter first name";
-    }
-
-    if (!values.lastName) {
-      errors.lastName = "* Please enter last name";
-    }
-
-    if (!values.email) {
-      errors.email = "* Please enter email";
-    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
-      errors.email = "Invalid email address";
-    }
-
-    if (!values.contactNumber) {
-      errors.contactNumber = "* Please enter contact number";
-    }
-
-    if (!values.message) {
-      errors.message = "* Please enter your query for us";
-    }
-
-    return errors;
-  };
-
   const contactDetails = useFormik({
-    initialValues,
-    onSubmit,
-    validate,
+    initialValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      contactNumber: "",
+      message: "",
+    },
+
+    // this method is for validate the inpit field and display error message
+    validate: (values) => {
+      const errors = {};
+
+      if (!values.firstName) {
+        errors.firstName = "* Please enter first name";
+      }
+
+      if (!values.lastName) {
+        errors.lastName = "* Please enter last name";
+      }
+
+      if (!values.email) {
+        errors.email = "* Please enter email";
+      } else if (
+        !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+      ) {
+        errors.email = "Invalid email address";
+      }  
+
+      if (!values.contactNumber) {
+        errors.contactNumber = "* Please enter contact number";
+      }
+
+      if (!values.message) {
+        errors.message = "* Please enter your query for us";
+      }
+
+      // console.log("formik error:", contactDetails.errors);
+      return errors;
+    },
+
+    // this method is to captured the input on click of a submit button
+    onSubmit: (values) => {
+      // console.log("form data", values);
+    },
   });
 
   return (
@@ -136,56 +134,46 @@ const ContactUs = () => {
             <form onSubmit={contactDetails.handleSubmit}>
               <div className="md:flex md:gap-4">
                 {/* input box for first name  */}
-                <div className="relative z-0 w-full mb-5 group md:flex-1">
-                  <input
-                    type="text"
-                    name="firstName"
-                    id="firstName"
-                    className="block py-2.5 px-0 w-full text-md bg-transparent border-0 border-b-2 border-default-medium border-[#8A7650] appearance-none focus:outline-none focus:ring-0 focus:border-[#562F00] peer"
-                    placeholder=" "
-                    onChange={contactDetails.handleChange}
-                    value={contactDetails.values.firstName}
-                    required
-                  />
-                  {contactDetails.errors.firstName ? (
-                    <p className="text-red-500 font-semibold text-md">
-                      {contactDetails.errors.firstName}
-                    </p>
-                  ) : null}
-
-                  <label
-                    for="firstName"
-                    className="absolute font-body text-md text-[#8A7650] duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
-                  >
-                    First Name
-                  </label>
-                </div>
+                 <div className="relative z-0 w-full mb-5 mt-3 group md:flex-1">
+                <input
+                  type="text"
+                  name="firstName"
+                  id="firstName"
+                  className="block py-2.5 px-0 w-full text-md bg-transparent border-0 border-b-2 border-default-medium border-[#8A7650] appearance-none focus:outline-none focus:ring-0 focus:border-[#562F00] peer"
+                  placeholder=""
+                  onChange={contactDetails.handleChange}
+                  onBlur={contactDetails.handleBlur}
+                  value={contactDetails.values.firstName}
+                />
+                  {(contactDetails.touched.firstName && contactDetails.errors.firstName) ? (<p className='text-red-500 text-sm mt-1'>{contactDetails.errors.firstName}</p>) : null}
+                <label
+                  for="firstName"
+                  className="absolute font-body text-md text-[#8A7650] duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
+                >
+                  First Name
+                </label>
+              </div>
 
                 {/* input box for last name  */}
-                <div className="relative z-0 w-full mb-5 group md:flex-1">
-                  <input
-                    type="text"
-                    name="lastName"
-                    id="lastName"
-                    className="block py-2.5 px-0 w-full text-md bg-transparent border-0 border-b-2 border-default-medium border-[#8A7650] appearance-none focus:outline-none focus:ring-0 focus:border-[#562F00] peer"
-                    placeholder=" "
-                    onChange={contactDetails.handleChange}
-                    value={contactDetails.values.lastName}
-                    required
-                  />
-                  {contactDetails.errors.lastName ? (
-                    <p className="text-red-500 font-semibold text-md">
-                      {contactDetails.errors.lastName}
-                    </p>
-                  ) : null}
-
-                  <label
-                    for="lastName"
-                    className="absolute font-body text-md text-[#8A7650] duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
-                  >
-                    Last Name
-                  </label>
-                </div>
+                 <div className="relative z-0 w-full mt-3 group md:flex-1">
+                <input
+                  type="text"
+                  name="lastName"
+                  id="lastName"
+                  className="block py-2.5 px-0 w-full text-md bg-transparent border-0 border-b-2 border-default-medium border-[#8A7650] appearance-none focus:outline-none focus:ring-0 focus:border-[#562F00] peer"
+                  placeholder=""
+                  onChange={contactDetails.handleChange}
+                  onBlur={contactDetails.handleBlur}
+                  value={contactDetails.values.lastName}
+                />
+                  {(contactDetails.touched.lastName && contactDetails.errors.lastName) ? (<p className='text-red-500 text-sm mt-1'>{contactDetails.errors.lastName}</p>) : null}
+                <label
+                  for="lastName"
+                  className="absolute font-body text-md text-[#8A7650] duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
+                >
+                  Last Name
+                </label>
+              </div>
               </div>
 
               {/* input box for email  */}
@@ -194,21 +182,16 @@ const ContactUs = () => {
                   type="email"
                   name="email"
                   id="email"
-                  class="block py-2.5 px-0 w-full text-md bg-transparent border-0 border-b-2 border-default-medium border-[#8A7650] appearance-none focus:outline-none focus:ring-0 focus:border-[#562F00] peer"
-                  placeholder=" "
+                  className="block py-2.5 px-0 w-full text-md bg-transparent border-0 border-b-2 border-default-medium border-[#8A7650] appearance-none focus:outline-none focus:ring-0 focus:border-[#562F00] peer"
+                  placeholder=""
                   onChange={contactDetails.handleChange}
+                  onBlur={contactDetails.handleBlur}
                   value={contactDetails.values.email}
-                  required
                 />
-                {contactDetails.errors.email ? (
-                  <p className="text-red-500 font-semibold text-md">
-                    {contactDetails.errors.email}
-                  </p>
-                ) : null}
-
+                  {(contactDetails.touched.email && contactDetails.errors.email) ? (<p className='text-red-500 text-sm mt-1'>{contactDetails.errors.email}</p>) : null}
                 <label
                   for="email"
-                  class="absolute font-body text-md text-[#8A7650] duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
+                  className="absolute font-body text-md text-[#8A7650] duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
                 >
                   Email
                 </label>
@@ -217,24 +200,19 @@ const ContactUs = () => {
               {/* input box for contact number  */}
               <div className="relative z-0 w-full mb-5 mt-3 group">
                 <input
-                  type="contactNumber"
+                  type="number"
                   name="contactNumber"
-                  id="number"
-                  class="block py-2.5 px-0 w-full text-md bg-transparent border-0 border-b-2 border-default-medium border-[#8A7650] appearance-none focus:outline-none focus:ring-0 focus:border-[#562F00] peer"
-                  placeholder=" "
+                  id="contactNumber"
+                  className="block py-2.5 px-0 w-full text-md bg-transparent border-0 border-b-2 border-default-medium border-[#8A7650] appearance-none focus:outline-none focus:ring-0 focus:border-[#562F00] peer"
+                  placeholder=""
                   onChange={contactDetails.handleChange}
+                  onBlur={contactDetails.handleBlur}
                   value={contactDetails.values.contactNumber}
-                  required
                 />
-                {contactDetails.errors.contactNumber ? (
-                  <p className="text-red-500 font-semibold text-md">
-                    {contactDetails.errors.contactNumber}
-                  </p>
-                ) : null}
-
+                  {(contactDetails.touched.contactNumber && contactDetails.errors.contactNumber) ? (<p className='text-red-500 text-sm mt-1'>{contactDetails.errors.contactNumber}</p>) : null}
                 <label
                   for="contactNumber"
-                  class="absolute font-body text-md text-[#8A7650] duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
+                  className="absolute font-body text-md text-[#8A7650] duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
                 >
                   Contact Number
                 </label>
@@ -249,14 +227,11 @@ const ContactUs = () => {
                   className="bg-neutral-secondary-medium border-2 border-default-medium border-[#8A7650] text-md text-[#562F00] text-semibold trounded-base focus:ring-brand focus:outline-none focus:border-[#562F00] block w-full p-3.5 shadow-xs placeholder:text-body"
                   placeholder="Your Query for us ...."
                   onChange={contactDetails.handleChange}
+                  onBlur={contactDetails.handleBlur}
                   value={contactDetails.values.message}
                 ></textarea>
+                {(contactDetails.touched.message && contactDetails.errors.message) ? (<p className='text-red-500 text-sm mt-1'>{contactDetails.errors.message}</p>) : null}
               </div>
-              {contactDetails.errors.message ? (
-                <p className="text-red-500 font-semibold text-md">
-                  {contactDetails.errors.message}
-                </p>
-              ) : null}
 
               {/* checkbox for terms and condition  */}
               <div className="flex items-start mb-4 mt-3">
@@ -264,14 +239,14 @@ const ContactUs = () => {
                   id="default-checkbox"
                   type="checkbox"
                   value=""
-                  className="w-8 h-8 border-2 border-default-medium border-[#562F00] rounded-xs focus:ring-2 focus:ring-brand-soft"
+                  className="w-8 h-8 border-2 border-[#562F00] rounded-xs"
                 />
                 <label
                   for="default-checkbox"
                   className="font-body select-none ms-2 text-sm font-medium text-[#562F00]"
                 >
                   By submitting this form, I agree to the collection and use my
-                  personla dataas per the privacy Policy for marketing purpose.
+                  personla data as per the privacy Policy for marketing purpose.
                 </label>
               </div>
 
