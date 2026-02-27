@@ -214,14 +214,15 @@ const ContactUs = () => {
 
                 {/* message for query  */}
                 <div className="relative z-0 w-full mb-5 mt-3 group">
-                  <textarea
+                  <Field
+                    as="textarea"
                     id="message"
                     name="message"
                     rows="4"
                     className="bg-neutral-secondary-medium border-2 border-default-medium border-[#8A7650] text-md text-[#562F00] text-semibold trounded-base focus:ring-brand focus:outline-none focus:border-[#562F00] block w-full p-3.5 shadow-xs placeholder:text-body"
                     placeholder="Your Query for us ...."
-                  ></textarea>
-                  <ErrorMessage name='message' className="text-red-500 text-sm mt-1"/>
+                  />
+                  <ErrorMessage name='message' component="div" className="text-red-500 text-sm mt-1"/>
                 </div>
 
                 {/* checkbox for terms and condition  */}
@@ -256,8 +257,6 @@ const ContactUs = () => {
           </div>
         </Formik>
       </div>
-
-      {}
     </>
   );
 };
