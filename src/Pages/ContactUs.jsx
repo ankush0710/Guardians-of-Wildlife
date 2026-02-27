@@ -4,7 +4,7 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ContactUs = () => {
-  const [isSubmit, setIsSubmit] = useState(true);
+  const [isSubmit, setIsSubmit] = useState(false);
 
   // This method is used to capture the input field
   const initialValues = {
@@ -35,7 +35,7 @@ const ContactUs = () => {
 
     if (!values.contactNumber) {
       errors.contactNumber = "* Please enter contact number";
-    } else if (values.contactNumber.length < 10) {
+    } else if (contactNumber.length < 10) {
       errors.contactNumber = "* Contact number should be atleast of 10 digits";
     }
 
@@ -48,9 +48,10 @@ const ContactUs = () => {
   };
 
   // this method is to captured the input on click of a submit button
-  const onSubmit = (values) => {
+  const onSubmit = (values, { resetForm }) => {
     console.log("form data", values);
-    setIsSubmit = true;
+    setIsSubmit(true);
+    resetForm();
   };
 
   return (
@@ -126,29 +127,16 @@ const ContactUs = () => {
           </div>
         </div>
 
-        <div
-              id="success-message"
-              className="absolute z-10 bg-[#ECE7D1] min-h-72 min-w-96 rounded-xl shadow-lg p-4 flex justify-center items-center"
-            >
-              <div id="icon" className="">
-                <FontAwesomeIcon icon="fa-solid fa-check" size={30}/>
-              </div>
-              <div id="message">
-                <h1 className="font-heading text-3xl font-bold text-[#48A111]">Submittes Successfully</h1>
-              </div>
-            </div>
-
         {/* contact form for contact details  */}
         <Formik
           initialValues={initialValues}
           validate={validate}
           onSubmit={onSubmit}
         >
-          <div id="contact-form" className="mt-10 md:flex-1">
+          <div id="contact-form" className="relative mt-10 md:flex-1">
             <h1 className="font-heading text-3xl font-bold text-center">
               Contact Us
             </h1>
-
             <div
               id="contact-form"
               className="bg-[#ECE7D1] rounded-xl flex flex-col py-15 px-10 mx-3 my-10 relative md:w-auto lg:w-2xl md:shadow-lg"
@@ -292,18 +280,46 @@ const ContactUs = () => {
             </div>
           </div>
         </Formik>
+
+        {/* this successfull message will pop-up when form is submitted  */}
+        {isSubmit && (
+          <div
+            id="success-message"
+            className="absolute bottom-1/5 mx-4 bg-[#ECE7D1] border-2 border-gray-200 min-h-64 min-w-96 rounded-xl shadow-lg p-4 flex flex-col gap-4 justify-center items-center tranisiton duration-800 ease-in-out md:min-w-86 md:top-1/3 md:left-1/3"
+          >
+            <div
+              id="icon"
+              className="border-2 p-3 border-gray-300 rounded-full bg-white"
+            >
+              <FontAwesomeIcon
+                icon="fa-solid fa-check"
+                className="text-[#48A111] text-4xl font-bolder"
+              />
+            </div>
+            <div id="message">
+              <h1 className="font-heading text-3xl font-bold text-[#48A111]">
+                Submitted Successfully
+              </h1>
+            </div>
+            <div id="ok-button">
+              <button
+                type="submit"
+                className="text-[#8A7650] font-semibold font-body bg-transparent border-2 border-[#8A7650] px-8 py-2 rounded-xl hover:text-[#562F00] hover:bg-[#8A7650] hover:border-2 hover:border-[#562F00] hover:duration-600"
+                onClick={() => {
+                  setIsSubmit(false);
+                }}
+              >
+                OK
+              </button>
+            </div>
+          </div>
+        )}
       </div>
 
-      {/* this successfull message will popup when form is submitted  */}
-      {/* {
-        isSubmit ? (
-        
-        ) : (
-        <div id="error-message">
+      {/* some Frequentlt Asked Question to help user */}
+      <div id="faq-container">
 
-        </div>
-        )
-      } */}
+      </div>
     </>
   );
 };
