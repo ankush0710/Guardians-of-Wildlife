@@ -1,10 +1,10 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { useState } from "react"
+import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ContactUs = () => {
-
-  const [isSubmit, setIsSubmit] = useState(false);
+  const [isSubmit, setIsSubmit] = useState(true);
 
   // This method is used to capture the input field
   const initialValues = {
@@ -35,6 +35,8 @@ const ContactUs = () => {
 
     if (!values.contactNumber) {
       errors.contactNumber = "* Please enter contact number";
+    } else if (values.contactNumber.length < 10) {
+      errors.contactNumber = "* Contact number should be atleast of 10 digits";
     }
 
     if (!values.message) {
@@ -48,11 +50,12 @@ const ContactUs = () => {
   // this method is to captured the input on click of a submit button
   const onSubmit = (values) => {
     console.log("form data", values);
+    setIsSubmit = true;
   };
 
   return (
     <>
-      <div id="container" className="md:flex md:justify-between">
+      <div id="container" className="relative md:flex md:justify-between">
         {/* address of offices in INDIA and LA  */}
         <div
           id="address_section"
@@ -123,6 +126,18 @@ const ContactUs = () => {
           </div>
         </div>
 
+        <div
+              id="success-message"
+              className="absolute z-10 bg-[#ECE7D1] min-h-72 min-w-96 rounded-xl shadow-lg p-4 flex justify-center items-center"
+            >
+              <div id="icon" className="">
+                <FontAwesomeIcon icon="fa-solid fa-check" size={30}/>
+              </div>
+              <div id="message">
+                <h1 className="font-heading text-3xl font-bold text-[#48A111]">Submittes Successfully</h1>
+              </div>
+            </div>
+
         {/* contact form for contact details  */}
         <Formik
           initialValues={initialValues}
@@ -133,6 +148,7 @@ const ContactUs = () => {
             <h1 className="font-heading text-3xl font-bold text-center">
               Contact Us
             </h1>
+
             <div
               id="contact-form"
               className="bg-[#ECE7D1] rounded-xl flex flex-col py-15 px-10 mx-3 my-10 relative md:w-auto lg:w-2xl md:shadow-lg"
@@ -148,7 +164,11 @@ const ContactUs = () => {
                       className="block py-2.5 px-0 w-full text-md bg-transparent border-0 border-b-2 border-default-medium border-[#8A7650] appearance-none focus:outline-none focus:ring-0 focus:border-[#562F00] peer"
                       placeholder=""
                     />
-                    <ErrorMessage name='firstName' component="div" className="text-red-500 text-sm mt-1"/>
+                    <ErrorMessage
+                      name="firstName"
+                      component="div"
+                      className="text-red-500 text-sm mt-1"
+                    />
                     <label
                       for="firstName"
                       className="absolute font-body text-md text-[#8A7650] duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
@@ -166,7 +186,11 @@ const ContactUs = () => {
                       className="block py-2.5 px-0 w-full text-md bg-transparent border-0 border-b-2 border-default-medium border-[#8A7650] appearance-none focus:outline-none focus:ring-0 focus:border-[#562F00] peer"
                       placeholder=""
                     />
-                    <ErrorMessage name='lastName' component="div" className="text-red-500 text-sm mt-1"/>
+                    <ErrorMessage
+                      name="lastName"
+                      component="div"
+                      className="text-red-500 text-sm mt-1"
+                    />
                     <label
                       for="lastName"
                       className="absolute font-body text-md text-[#8A7650] duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
@@ -185,7 +209,11 @@ const ContactUs = () => {
                     className="block py-2.5 px-0 w-full text-md bg-transparent border-0 border-b-2 border-default-medium border-[#8A7650] appearance-none focus:outline-none focus:ring-0 focus:border-[#562F00] peer"
                     placeholder=""
                   />
-                  <ErrorMessage name='email' component="div" className="text-red-500 text-sm mt-1"/>
+                  <ErrorMessage
+                    name="email"
+                    component="div"
+                    className="text-red-500 text-sm mt-1"
+                  />
                   <label
                     for="email"
                     className="absolute font-body text-md text-[#8A7650] duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
@@ -203,7 +231,11 @@ const ContactUs = () => {
                     className="block py-2.5 px-0 w-full text-md bg-transparent border-0 border-b-2 border-default-medium border-[#8A7650] appearance-none focus:outline-none focus:ring-0 focus:border-[#562F00] peer"
                     placeholder=""
                   />
-                  <ErrorMessage name='contactNumber' component="div" className="text-red-500 text-sm mt-1"/>
+                  <ErrorMessage
+                    name="contactNumber"
+                    component="div"
+                    className="text-red-500 text-sm mt-1"
+                  />
                   <label
                     for="contactNumber"
                     className="absolute font-body text-md text-[#8A7650] duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
@@ -222,7 +254,11 @@ const ContactUs = () => {
                     className="bg-neutral-secondary-medium border-2 border-default-medium border-[#8A7650] text-md text-[#562F00] text-semibold trounded-base focus:ring-brand focus:outline-none focus:border-[#562F00] block w-full p-3.5 shadow-xs placeholder:text-body"
                     placeholder="Your Query for us ...."
                   />
-                  <ErrorMessage name='message' component="div" className="text-red-500 text-sm mt-1"/>
+                  <ErrorMessage
+                    name="message"
+                    component="div"
+                    className="text-red-500 text-sm mt-1"
+                  />
                 </div>
 
                 {/* checkbox for terms and condition  */}
@@ -257,6 +293,17 @@ const ContactUs = () => {
           </div>
         </Formik>
       </div>
+
+      {/* this successfull message will popup when form is submitted  */}
+      {/* {
+        isSubmit ? (
+        
+        ) : (
+        <div id="error-message">
+
+        </div>
+        )
+      } */}
     </>
   );
 };
