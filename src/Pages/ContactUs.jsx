@@ -2,8 +2,50 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Accordian from "../Components/Accordians";
 
 const ContactUs = () => {
+  // local state for faq section
+  const faqData = [
+    {
+      id: 1,
+      question: "What is Guardian of Wildlife",
+      answer:
+        "Guardians of Wildlife is an organization which is certified by the goverment of 25+ independent countries. We continously work for the animal of different species and different region. We save their species. We care them to grow and save them from extintion.",
+    },
+    {
+      id: 2,
+      question: "What is Guardian of Wildlife",
+      answer:
+        "Guardians of Wildlife is an organization which is certified by the goverment of 25+ independent countries. We continously work for the animal of different species and different region. We save their species. We care them to grow and save them from extintion.",
+    },
+    {
+      id: 3,
+      question: "What is Guardian of Wildlife",
+      answer:
+        "Guardians of Wildlife is an organization which is certified by the goverment of 25+ independent countries. We continously work for the animal of different species and different region. We save their species. We care them to grow and save them from extintion.",
+    },
+    {
+      id: 4,
+      question: "What is Guardian of Wildlife",
+      answer:
+        "Guardians of Wildlife is an organization which is certified by the goverment of 25+ independent countries. We continously work for the animal of different species and different region. We save their species. We care them to grow and save them from extintion.",
+    },
+    {
+      id: 5,
+      question: "What is Guardian of Wildlife",
+      answer:
+        "Guardians of Wildlife is an organization which is certified by the goverment of 25+ independent countries. We continously work for the animal of different species and different region. We save their species. We care them to grow and save them from extintion.",
+    },
+    {
+      id: 6,
+      question: "What is Guardian of Wildlife",
+      answer:
+        "Guardians of Wildlife is an organization which is certified by the goverment of 25+ independent countries. We continously work for the animal of different species and different region. We save their species. We care them to grow and save them from extintion.",
+    }
+  ];
+
+
   const [isSubmit, setIsSubmit] = useState(false);
 
   // This method is used to capture the input field
@@ -318,7 +360,10 @@ const ContactUs = () => {
 
       {/* some Frequentlt Asked Question to help user */}
       <div id="faq-container">
-
+        <h1 className="font-heading text-3xl font-bold text-center">FAQ's</h1>
+        <div className="my-10 mx-3">
+          <Accordian key={faqData.id} data={faqData}/>
+        </div>
       </div>
     </>
   );
