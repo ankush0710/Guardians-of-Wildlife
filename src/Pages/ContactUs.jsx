@@ -9,37 +9,37 @@ const ContactUs = () => {
   const faqData = [
     {
       id: 1,
-      question: "What is Guardian of Wildlife",
+      question: "What is Guardian of Wildlife ?",
       answer:
         "Guardians of Wildlife is an organization which is certified by the goverment of 25+ independent countries. We continously work for the animal of different species and different region. We save their species. We care them to grow and save them from extintion.",
     },
     {
       id: 2,
-      question: "What is Guardian of Wildlife",
+      question: "How we Contact the Guardian of Wildlife Team ?",
       answer:
         "Guardians of Wildlife is an organization which is certified by the goverment of 25+ independent countries. We continously work for the animal of different species and different region. We save their species. We care them to grow and save them from extintion.",
     },
     {
       id: 3,
-      question: "What is Guardian of Wildlife",
+      question: "What are the Operative Hours ?",
       answer:
         "Guardians of Wildlife is an organization which is certified by the goverment of 25+ independent countries. We continously work for the animal of different species and different region. We save their species. We care them to grow and save them from extintion.",
     },
     {
       id: 4,
-      question: "What is Guardian of Wildlife",
+      question: "Can I visit office for ?",
       answer:
         "Guardians of Wildlife is an organization which is certified by the goverment of 25+ independent countries. We continously work for the animal of different species and different region. We save their species. We care them to grow and save them from extintion.",
     },
     {
       id: 5,
-      question: "What is Guardian of Wildlife",
+      question: "Can I contact to the team in weekends or holidays ?",
       answer:
         "Guardians of Wildlife is an organization which is certified by the goverment of 25+ independent countries. We continously work for the animal of different species and different region. We save their species. We care them to grow and save them from extintion.",
     },
     {
       id: 6,
-      question: "What is Guardian of Wildlife",
+      question: "How much time it takes to revert back of query ?",
       answer:
         "Guardians of Wildlife is an organization which is certified by the goverment of 25+ independent countries. We continously work for the animal of different species and different region. We save their species. We care them to grow and save them from extintion.",
     }
