@@ -43,12 +43,12 @@ const Navbar = () => {
             id="navlinks-right"
             className="hidden lg:flex items-center gap-4"
           >
-            <Link to="/JoinOurTeam">
+            <Link to="/join-our-team">
               <p className="font: font-body text-white text-sm hover:text-[#FFC300]">
                 JOIN OUT TEAM
               </p>
             </Link>
-            <Link to="/ContactUs">
+            <Link to="/contact-us">
               <p className="font: font-body text-white text-sm hover:text-[#FFC300]">CONTACT US</p>
             </Link>
           </div>
