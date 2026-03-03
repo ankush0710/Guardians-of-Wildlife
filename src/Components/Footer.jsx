@@ -124,7 +124,7 @@ const Footer = () => {
           {/* Form for leave message  */}
           <div
             id="message-form"
-            className="bg-[#213C51] rounded-xl flex flex-col pt-10 pb-15 px-10 mx-6 mt-10 relative md:w-auto lg:w-2xl"
+            className="bg-[#213C51] rounded-xl flex flex-col pt-10 pb-15 px-10 mx-6 mt-10 md:w-auto lg:w-2xl"
           >
             <form action="">
               <div className="relative z-0 w-full mb-5 group">

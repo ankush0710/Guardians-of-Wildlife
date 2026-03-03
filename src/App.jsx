@@ -2,7 +2,7 @@ import React from 'react';
 import {Routes, Route} from 'react-router-dom'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {faInstagram, faFacebook, faTwitter, faLinkedin} from '@fortawesome/free-brands-svg-icons';
-import {faCheck, faAngleDown} from '@fortawesome/free-solid-svg-icons';
+import {faCheck, faAngleDown, faArrowDown} from '@fortawesome/free-solid-svg-icons';
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
 import Dashboard from "./Pages/Dashboard";
@@ -12,7 +12,7 @@ import ContactUs from "./Pages/ContactUs";
 import Program from "./Pages/Program";
 
 function App() {
-  library.add(faInstagram, faFacebook, faTwitter, faLinkedin, faCheck, faAngleDown);
+  library.add(faInstagram, faFacebook, faTwitter, faLinkedin, faCheck, faAngleDown, faArrowDown);
 
   return (
     <>

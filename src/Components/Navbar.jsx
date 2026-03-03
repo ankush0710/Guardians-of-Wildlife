@@ -15,7 +15,7 @@ const Navbar = () => {
         className={
           isOpen
             ? "hidden"
-            : "bg-[#111F35] w-80 py-3 px-6 rounded-full mx-auto my-10 md:w-2xl md:px-10 opacity-75"
+            : "bg-[#111F35] w-80 py-3 px-6 rounded-full mx-auto my-10 md:w-2xl md:px-10"
         }
       >
         <div id="navbar" className="flex justify-between items-center">
@@ -74,7 +74,7 @@ const Navbar = () => {
 
       {/* links for mobile view */}
       {isOpen && (
-        <div className="relative w-full h-screen bg-[#111F35] py-10 transition duration-400 lg:hidden">
+        <div className="relative w-full h-screen bg-[#111F35] py-10 transition duration-600 ease-in-out lg:hidden">
           {/* close button only when click on hamburger button  */}
           <button className="absolute top-4 right-4 text-white hover:text-[#FFC300] transition duration-300 lg:hidden">
             <FaXmark size={30} onClick={() => setIsOpen(false)} />
@@ -111,7 +111,7 @@ const Navbar = () => {
             </Link>
             <Link
               className="font: font-body text-white text-2xl font-medium hover:text-[#FFC300]"
-              to="/JoinOurTeam"
+              to="/join-our-team"
               onClick={() => {
                 setIsOpen(false);
               }}
@@ -120,7 +120,7 @@ const Navbar = () => {
             </Link>
             <Link
               className="font: font-body text-white text-2xl font-medium hover:text-[#FFC300]"
-              to="/AboutUs"
+              to="/about-us"
               onClick={() => {
                 setIsOpen(false);
               }}
@@ -129,7 +129,7 @@ const Navbar = () => {
             </Link>
             <Link
               className="font: font-body text-white text-2xl font-medium hover:text-[#FFC300]"
-              to="/ContactUs"
+              to="/contact-us"
               onClick={() => {
                 setIsOpen(false);
               }}
