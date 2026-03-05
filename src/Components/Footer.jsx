@@ -188,7 +188,7 @@ const Footer = () => {
               </div>
 
               {/* form submitt button  */}
-              <div className="absolute right-0 px-10">
+              <div className="absolute right-0 px-10 md:px-20">
                 <button
                   type="button"
                   className="text-white font-body bg-transparent border-2 border-[#111F35] px-8 py-2 rounded-full hover:bg-[#111F35] hover:border-2 hover:border-[#6594B1] hover:duration-600"

@@ -24,10 +24,10 @@ const Navbar = () => {
             id="nav-links-left"
             className="hidden lg:flex items-center gap-4"
           >
-            <NavLink to="/" className={({isActive})=>isActive?'font: font-body text-white underline underline-offset-4 text-md hover:text-[#FFC300]':'font: font-body text-white text-sm hover:text-[#FFC300]'}>
+            <NavLink to="/" className={({isActive})=>isActive?'font: font-body text-white underline underline-offset-4 text-md hover:text-[#ECE7D1]':'font: font-body text-white text-sm hover:text-[#ECE7D1]'}>
               HOME
             </NavLink>
-            <NavLink to="/Program" className={({isActive})=>isActive?'font: font-body text-white underline underline-offset-4 text-md hover:text-[#FFC300]':'font: font-body text-white text-sm hover:text-[#FFC300]'}>
+            <NavLink to="/Program" className={({isActive})=>isActive?'font: font-body text-white underline underline-offset-4 text-md hover:text-[#ECE7D1]':'font: font-body text-white text-sm hover:text-[#ECE7D1]'}>
               PROGRAM
             </NavLink>
           </div>
@@ -49,10 +49,10 @@ const Navbar = () => {
             id="navlinks-right"
             className="hidden lg:flex items-center gap-4"
           >
-            <NavLink to="/join-our-team" className={({isActive})=>isActive?'font: font-body text-white underline underline-offset-4 text-md hover:text-[#FFC300]':'font: font-body text-white text-sm hover:text-[#FFC300]'}>
+            <NavLink to="/join-our-team" className={({isActive})=>isActive?'font: font-body text-white underline underline-offset-4 text-md hover:text-[#ECE7D1]':'font: font-body text-white text-sm hover:text-[#ECE7D1]'}>
               JOIN OUR TEAM
             </NavLink>
-            <NavLink to="/contact-us" className={({isActive})=>isActive?'font: font-body text-white underline underline-offset-4 text-md hover:text-[#FFC300]':'font: font-body text-white text-sm hover:text-[#FFC300]'}>
+            <NavLink to="/contact-us" className={({isActive})=>isActive?'font: font-body text-white underline underline-offset-4 text-md hover:text-[#ECE7D1]':'font: font-body text-white text-sm hover:text-[#ECE7D1]'}>
              CONTACT US
             </NavLink>
           </div>
@@ -83,7 +83,7 @@ const Navbar = () => {
           {/* All pages names and link in mobile view  */}
           <div className="flex flex-col gap-8 items-center mt-10">
             <Link
-              className="font: font-body text-white text-2xl font-medium hover:text-[#FFC300]"
+              className="font: font-body text-white text-2xl font-medium hover:text-[#ECE7D1]"
               to="/"
               onClick={() => {
                 setIsOpen(false);
@@ -92,7 +92,7 @@ const Navbar = () => {
               HOME
             </Link>
             <Link
-              className="font: font-body text-white text-2xl font-medium hover:text-[#FFC300]"
+              className="font: font-body text-white text-2xl font-medium hover:text-[#ECE7D1]"
               to="/Wildlife"
               onClick={() => {
                 setIsOpen(false);
@@ -101,7 +101,7 @@ const Navbar = () => {
               WILDLIFE
             </Link>
             <Link
-              className="font: font-body text-white text-2xl font-medium hover:text-[#FFC300]"
+              className="font: font-body text-white text-2xl font-medium hover:text-[#ECE7D1]"
               to="/Program"
               onClick={() => {
                 setIsOpen(false);
@@ -110,7 +110,7 @@ const Navbar = () => {
               PROGRAM
             </Link>
             <Link
-              className="font: font-body text-white text-2xl font-medium hover:text-[#FFC300]"
+              className="font: font-body text-white text-2xl font-medium hover:text-[#ECE7D1]"
               to="/join-our-team"
               onClick={() => {
                 setIsOpen(false);
@@ -119,7 +119,7 @@ const Navbar = () => {
               JOIN OUR TEAM
             </Link>
             <Link
-              className="font: font-body text-white text-2xl font-medium hover:text-[#FFC300]"
+              className="font: font-body text-white text-2xl font-medium hover:text-[#ECE7D1]"
               to="/about-us"
               onClick={() => {
                 setIsOpen(false);
@@ -128,7 +128,7 @@ const Navbar = () => {
               ABOUT US
             </Link>
             <Link
-              className="font: font-body text-white text-2xl font-medium hover:text-[#FFC300]"
+              className="font: font-body text-white text-2xl font-medium hover:text-[#ECE7D1]"
               to="/contact-us"
               onClick={() => {
                 setIsOpen(false);
