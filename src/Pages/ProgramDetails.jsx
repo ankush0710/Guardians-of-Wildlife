@@ -24,29 +24,31 @@ const PrgramDetails = () => {
       <div id="container" className="min-h-screen mx-3">
         {/* header section */}
         <div id="heading" className="space-y-3 pt-10 pb-5">
-          <h1 className="font-heading text-black text-3xl font-bold text-center">
+          <h1 className="font-heading text-black text-3xl font-bold text-center md:text-5xl">
             {ProgramDetails.programName}
           </h1>
-          <p className="font-heading text-black text-xl font-semibold pt-5">
+          <p className="font-heading text-black text-xl font-semibold pt-5 md:text-center">
             Launced by:-
             <span className="font-body text-black ps-3 tracking-wider text-lg">
               {ProgramDetails.govermentAgency}
             </span>
           </p>
-          <p className="font-heading text-black tracking-wider text-xl font-semibold">
+          <p className="font-heading text-black tracking-wider text-xl font-semibold md:text-center">
             Country:-
             <span className="font-body text-black ps-3 text-lg">
               {ProgramDetails.country}
             </span>
           </p>
         </div>
-        <div className="border-b-2 border-gray-400 my-5"></div>
+        <div className="border-b-2 border-gray-400 my-5 lg:hidden"></div>
 
-        {/* description section  */}
-        <div id="sub_conatainer">
+        <div id="sub_conatainer" className="lg:mx-3 lg:my-10 lg:flex gap-20">
           {/* image and others details  */}
           <div id="image_and_details">
-            <div id="image" className=" w-full h-70 md:h-50 md:w-xl">
+            <div
+              id="image"
+              className="w-full h-70 md:h-50 lg:w-lg md:h-96 md:shadow-xl"
+            >
               <img
                 src={ProgramDetails.imageUrl}
                 alt="image"
@@ -62,11 +64,15 @@ const PrgramDetails = () => {
               </p>
               <p className="font-body text-lg font-semibold">
                 Duration of the Program:-
-                <span className="font-medium ps-2">{ProgramDetails.duration}</span>
+                <span className="font-medium ps-2">
+                  {ProgramDetails.duration}
+                </span>
               </p>
               <p className="font-body text-lg font-semibold">
                 Funding in (USD):-
-                <span className="font-medium ps-2">{ProgramDetails.funding}</span>
+                <span className="font-medium ps-2">
+                  {ProgramDetails.funding}
+                </span>
               </p>
               <p className="font-body text-lg font-semibold">
                 Target species:-
@@ -83,6 +89,9 @@ const PrgramDetails = () => {
             </div>
           </div>
 
+          {/* border line between image and description  */}
+          <div className="border-r-2 border-gray-400"></div>
+
           {/* main description section*/}
           <div id="description" className="my-5">
             <p className="font-body text-lg font-semibold">
@@ -92,16 +101,24 @@ const PrgramDetails = () => {
               </span>
             </p>
           </div>
+        </div>
 
-          {/* object and goals section */}
-          <div id="objective" className="my-10">
-            <h1 className="font-heading text-2xl pb-5 font-bold text-center">Objective and Goals</h1>
-            <p className="font-body text-lg font-bold text-center text-gray-500">
-              <FontAwesomeIcon icon="fa-solid fa-quote-right" className="ps-3 pb-1 rotate-y-180" />
-              {ProgramDetails.objectivesAndGoals}
-              <FontAwesomeIcon icon="fa-solid fa-quote-right" className="ps-3 pb-1"/>
-            </p>
-          </div>
+        {/* object and goals section */}
+        <div id="objective" className="mt-10 mb-5">
+          <h1 className="font-heading text-2xl pb-5 font-bold text-center">
+            Objective and Goals
+          </h1>
+          <p className="font-body text-lg font-bold text-center text-gray-500">
+            <FontAwesomeIcon
+              icon="fa-solid fa-quote-right"
+              className="ps-3 pb-1 rotate-y-180"
+            />
+            {ProgramDetails.objectivesAndGoals}
+            <FontAwesomeIcon
+              icon="fa-solid fa-quote-right"
+              className="ps-3 pb-1"
+            />
+          </p>
         </div>
       </div>
     </>
