@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const PrgramDetails = () => {
   const { id } = useParams();
@@ -21,20 +22,20 @@ const PrgramDetails = () => {
   return (
     <>
       <div id="container" className="min-h-screen mx-3">
-        {/* header section  */}
+        {/* header section */}
         <div id="heading" className="space-y-3 pt-10 pb-5">
           <h1 className="font-heading text-black text-3xl font-bold text-center">
             {ProgramDetails.programName}
           </h1>
           <p className="font-heading text-black text-xl font-semibold pt-5">
             Launced by:-
-            <span className="font-body text-black text-lg">
+            <span className="font-body text-black ps-3 tracking-wider text-lg">
               {ProgramDetails.govermentAgency}
             </span>
           </p>
-          <p className="font-heading text-black text-xl font-semibold">
+          <p className="font-heading text-black tracking-wider text-xl font-semibold">
             Country:-
-            <span className="font-body text-black text-lg">
+            <span className="font-body text-black ps-3 text-lg">
               {ProgramDetails.country}
             </span>
           </p>
@@ -54,42 +55,52 @@ const PrgramDetails = () => {
             </div>
             <div className="space-y-2 mt-7">
               <p className="font-body text-lg font-semibold">
-                Launched year of the Program:-{" "}
-                <span className="font-medium">
+                Launched year of the Program:-
+                <span className="font-medium ps-2">
                   {ProgramDetails.yearLaunched}
                 </span>
               </p>
               <p className="font-body text-lg font-semibold">
-                Duration of the Program:-{" "}
-                <span className="font-medium">{ProgramDetails.duration}</span>
+                Duration of the Program:-
+                <span className="font-medium ps-2">{ProgramDetails.duration}</span>
               </p>
               <p className="font-body text-lg font-semibold">
-                Funding in (USD):-{" "}
-                <span className="font-medium">{ProgramDetails.funding}</span>
+                Funding in (USD):-
+                <span className="font-medium ps-2">{ProgramDetails.funding}</span>
               </p>
               <p className="font-body text-lg font-semibold">
-                Target species:-{" "}
-                <span className="font-medium">
+                Target species:-
+                <span className="font-medium ps-2">
                   ({ProgramDetails.targetSpecies})
                 </span>
               </p>
               <p className="font-body text-lg font-semibold">
-                Current status of the Program:-{" "}
-                <span className="font-medium">
+                Current status of the Program:-
+                <span className="font-medium ps-2">
                   {ProgramDetails.currentStatus}
                 </span>
               </p>
             </div>
           </div>
 
-          {/* main description  */}
+          {/* main description section*/}
           <div id="description" className="my-5">
-            <p className="font-heading text-lg font-semibold">Description:-
-            <span className="font-body font-medium"> {ProgramDetails.description}</span>
+            <p className="font-body text-lg font-semibold">
+              Description:-
+              <span className="font-body font-medium ps-2">
+                {ProgramDetails.description}
+              </span>
             </p>
           </div>
-          <div id="objective" className="text-center my-10">
-            <p className="font-body text-sm font-bold">{ProgramDetails.objectivesAndGoals}</p>
+
+          {/* object and goals section */}
+          <div id="objective" className="my-10">
+            <h1 className="font-heading text-2xl pb-5 font-bold text-center">Objective and Goals</h1>
+            <p className="font-body text-lg font-bold text-center text-gray-500">
+              <FontAwesomeIcon icon="fa-solid fa-quote-right" className="ps-3 pb-1 rotate-y-180" />
+              {ProgramDetails.objectivesAndGoals}
+              <FontAwesomeIcon icon="fa-solid fa-quote-right" className="ps-3 pb-1"/>
+            </p>
           </div>
         </div>
       </div>
