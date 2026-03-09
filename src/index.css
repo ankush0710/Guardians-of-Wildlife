@@ -9,6 +9,11 @@
 
 @import "tailwindcss";
 
+body {
+    background-color: #EBF4F6;
+}
+/* #FFFBF1 */
+
 @theme{
     --font-heading: Roboto, "sans-serif";
     --font-body: Playfare, "sans-serif";
