@@ -43,9 +43,12 @@ const Program = () => {
   return (
     <>
       <div className="w-full my-10">
-        <h1 className="font-heading text-3xl font-bold text-center pb-10">
+        <div id="banner-image">
+          <img src="" alt="wildlife-program" />
+        </div>
+        {/* <h1 className="font-heading text-3xl font-bold text-center pb-10">
           Our Programs
-        </h1>
+        </h1> */}
         <div className="w-full h-auto grid grid-cols-1 gap-4">
           {currentNumber.map((data) => (
             <ProgramCard key={data.id}>
