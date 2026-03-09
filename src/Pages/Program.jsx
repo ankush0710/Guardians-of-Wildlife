@@ -1,4 +1,5 @@
 import React from "react";
+import bannerImage from "../assets/blog-banner-image.png";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import ProgramCard from "../Components/ProgramCard";
@@ -15,16 +16,17 @@ const Program = () => {
   //pagination logic
   const lastIndex = currentPage * cardsPerPage;
   const startIndex = lastIndex - cardsPerPage;
-  const currentNumber = ProgramData.slice(
-    startIndex,
-    lastIndex
-  );
+  const currentNumber = ProgramData.slice(startIndex, lastIndex);
 
   const selectPageHandle = (selectedPage) => {
-    if(selectedPage >= 1 && selectedPage !== currentPage && selectedPage <= ProgramData.length/3){
-    setCurrentPage(selectedPage);
+    if (
+      selectedPage >= 1 &&
+      selectedPage !== currentPage &&
+      selectedPage <= ProgramData.length / 3
+    ) {
+      setCurrentPage(selectedPage);
     }
-  }
+  };
 
   //disppatch the funtion and render the data
   useEffect(() => {
@@ -43,12 +45,9 @@ const Program = () => {
   return (
     <>
       <div className="w-full my-10">
-        <div id="banner-image">
-          <img src="" alt="wildlife-program" />
-        </div>
-        {/* <h1 className="font-heading text-3xl font-bold text-center pb-10">
+        <h1 className="font-heading text-3xl font-bold text-center pb-10">
           Our Programs
-        </h1> */}
+        </h1>
         <div className="w-full h-auto grid grid-cols-1 gap-4">
           {currentNumber.map((data) => (
             <ProgramCard key={data.id}>
@@ -94,15 +93,48 @@ const Program = () => {
 
           {/* number and next, previous arrow  */}
           {ProgramData.length > 0 && (
-           <div id="pagination" className="flex justify-center text-xl mt-5 space-x-5 font-heading font-semibold">
-              <span><FontAwesomeIcon icon="fa-solid fa-angle-left" className={currentPage > 1 ? "text-gray-400 hover:text-black hover:transform hover:scale-130 hover:duration-300 cursor-pointer" : "opacity-0"} onClick={()=>selectPageHandle(currentPage-1)}/></span>
-              {
-                [...Array(ProgramData.length / 3)].map((_, i) => {
-                  return <span key={i} className={currentPage == i+1 ? "text-black transform translate scale-140 ease-in-out duration-300 cursor-pointer" : "text-gray-400 cursor-pointer"} onClick={()=>selectPageHandle(i+1)}>{i+1}</span>
-                })
-              }
-              <span><FontAwesomeIcon icon="fa-solid fa-angle-right" className={currentPage == ProgramData.length/3 ? "opacity-0" : "text-gray-400 hover:text-black hover:transform hover:scale-130 hover:duration-300 cursor-pointer"} onClick={()=>selectPageHandle(currentPage+1)}/></span>
-           </div>
+            <div
+              id="pagination"
+              className="flex justify-center text-xl mt-5 space-x-5 font-heading font-semibold"
+            >
+              <span>
+                <FontAwesomeIcon
+                  icon="fa-solid fa-angle-left"
+                  className={
+                    currentPage > 1
+                      ? "text-gray-400 hover:text-black hover:transform hover:scale-130 hover:duration-300 cursor-pointer"
+                      : "opacity-0"
+                  }
+                  onClick={() => selectPageHandle(currentPage - 1)}
+                />
+              </span>
+              {[...Array(ProgramData.length / 3)].map((_, i) => {
+                return (
+                  <span
+                    key={i}
+                    className={
+                      currentPage == i + 1
+                        ? "text-black transform translate scale-140 ease-in-out duration-300 cursor-pointer"
+                        : "text-gray-400 cursor-pointer"
+                    }
+                    onClick={() => selectPageHandle(i + 1)}
+                  >
+                    {i + 1}
+                  </span>
+                );
+              })}
+              <span>
+                <FontAwesomeIcon
+                  icon="fa-solid fa-angle-right"
+                  className={
+                    currentPage == ProgramData.length / 3
+                      ? "opacity-0"
+                      : "text-gray-400 hover:text-black hover:transform hover:scale-130 hover:duration-300 cursor-pointer"
+                  }
+                  onClick={() => selectPageHandle(currentPage + 1)}
+                />
+              </span>
+            </div>
           )}
         </div>
       </div>
