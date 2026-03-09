@@ -125,7 +125,7 @@ const Navbar = () => {
                 setIsOpen(false);
               }}
             >
-              Blogs
+              BLOGS
             </Link>
             {/* <Link
               className="font: font-body text-white text-2xl font-medium hover:text-[#ECE7D1]"

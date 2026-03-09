@@ -11,7 +11,7 @@ const Pagination = ({totalPages, cardsPerPage, setCurrentPage}) => {
         <>
         <div className='font-heading text-black'>
             {page.map((page, index)=>{
-                return <button className='text-black font-heading text-lg' key={index} onClick={()=>setCurrentPage(page)}>{page}</button>
+                return <button className='font-heading text-black font-heading text-lg' key={index} onClick={()=>setCurrentPage(page)}>{page}</button>
             })}
         </div>
         </>
