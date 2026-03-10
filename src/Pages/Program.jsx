@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import bannerImage from "../assets/blog-banner-image.png";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
 import ProgramCard from "../Components/ProgramCard";
 import { Link } from "react-router-dom";
 import { FetchProgramData } from "../redux/action/action";
@@ -25,7 +24,7 @@ const Program = () => {
       selectedPage <= ProgramData.length / 3
     ) {
       setCurrentPage(selectedPage);
-    }
+    }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
   };
 
   //disppatch the funtion and render the data

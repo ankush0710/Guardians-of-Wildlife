@@ -1,8 +1,9 @@
 import React from 'react';
-import {FETCH_PROGRAM_DATA} from '../action/actionType';
+import {FETCH_BLOG_DATA, FETCH_PROGRAM_DATA} from '../action/actionType';
 
 const initialState = {
     ProgramData : [],
+    BlogData : [],
 }
 
 const reducer = (state=initialState, action) => {
@@ -14,6 +15,12 @@ const reducer = (state=initialState, action) => {
                 ...state,
                 ProgramData: action.payload,
             };
+        
+        case FETCH_BLOG_DATA:
+            return {
+                ...state,
+                BlogData: action.payload,
+            }
         default:
             return state;
     }
