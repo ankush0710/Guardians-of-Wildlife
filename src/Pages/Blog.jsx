@@ -6,6 +6,27 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 
 const Blog = () => {
+  // local state for storing the quotes and author name to display it in UI
+  const quotes = [
+    {
+      id: 1,
+      bgImage: "https://www.tourmyindia.com/blog//wp-content/uploads/2025/09/Wildlife-Conservation-Reasons-to-Save-Wildlife.jpg",
+      quotes: "We forget, in a world completely transformed by man, that what we’re looking at is not necessarily the environment wildlife prefer, but the depleted remnant that wildlife is having to cope with: what it has is not necessarily what it wants.",
+      author: "Isabell Tree, Wilding",
+    },
+    {
+      id: 2,
+      bgImage:"https://api-ecotourism.forest.kerala.gov.in/public/uploads/slotmaster_images/1744004542_duknow3.jpeg",
+      quotes: "the updated 2016 State of Nature report discovered that the UK has lost significantly more biodiversity over the long term than the world average. Ranked twenty-ninth lowest out of 218 countries, we are among the most nature-depleted countries in the world.",
+      author: "Kedar dhepe",
+    },
+    {
+      id: 3,
+      bgImage:"https://media.geeksforgeeks.org/wp-content/uploads/20230802132058/Wildlife-Sanctuary.webp",
+      quotes: "Before we can truly understand the Animal Kingdom, we must first learn to respect all of the sentient beings that exist within it",
+      author: "Paul Oxton",
+    },
+  ];
   const dispatch = useDispatch();
   const BlogData = useSelector((state) => state.BlogData);
   const [currentPage, setCurrentPage] = useState(1);
@@ -52,7 +73,7 @@ const Blog = () => {
       {/* main container that contains cards  */}
       <div
         id="container"
-        className="mx-3 my-10 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:justify-items-center lg:mx-20"
+        className="w-contain h-auto mx-3 my-10 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:justify-items-center lg:mx-20"
       >
         {currentNumber.map((data) => {
           return (
@@ -163,51 +184,51 @@ const Blog = () => {
         })}
       </div>
 
-       {/* number and next, previous arrow  */}
-        {BlogData.length > 0 && (
-          <div
-            id="pagination"
-            className="flex justify-center text-xl mt-5 space-x-5 font-heading font-semibold mb-10"
-          >
-            <span>
-              <FontAwesomeIcon
-                icon="fa-solid fa-angle-left"
+      {/* number and next, previous arrow  */}
+      {BlogData.length > 0 && (
+        <div
+          id="pagination"
+          className="flex justify-center text-xl mt-5 space-x-5 font-heading font-semibold mb-10"
+        >
+          <span>
+            <FontAwesomeIcon
+              icon="fa-solid fa-angle-left"
+              className={
+                currentPage > 1
+                  ? "text-gray-400 hover:text-black hover:transform hover:scale-130 hover:duration-300 cursor-pointer"
+                  : "opacity-0"
+              }
+              onClick={() => selectPageHandle(currentPage - 1)}
+            />
+          </span>
+          {[...Array(BlogData.length / 3)].map((_, i) => {
+            return (
+              <span
+                key={i}
                 className={
-                  currentPage > 1
-                    ? "text-gray-400 hover:text-black hover:transform hover:scale-130 hover:duration-300 cursor-pointer"
-                    : "opacity-0"
+                  currentPage == i + 1
+                    ? "text-black transform translate scale-140 ease-in-out duration-300 cursor-pointer"
+                    : "text-gray-400 cursor-pointer"
                 }
-                onClick={() => selectPageHandle(currentPage - 1)}
-              />
-            </span>
-            {[...Array(BlogData.length / 3)].map((_, i) => {
-              return (
-                <span
-                  key={i}
-                  className={
-                    currentPage == i + 1
-                      ? "text-black transform translate scale-140 ease-in-out duration-300 cursor-pointer"
-                      : "text-gray-400 cursor-pointer"
-                  }
-                  onClick={() => selectPageHandle(i + 1)}
-                >
-                  {i + 1}
-                </span>
-              );
-            })}
-            <span>
-              <FontAwesomeIcon
-                icon="fa-solid fa-angle-right"
-                className={
-                  currentPage == BlogData.length / 3
-                    ? "opacity-0"
-                    : "text-gray-400 hover:text-black hover:transform hover:scale-130 hover:duration-300 cursor-pointer"
-                }
-                onClick={() => selectPageHandle(currentPage + 1)}
-              />
-            </span>
-          </div>
-        )}
+                onClick={() => selectPageHandle(i + 1)}
+              >
+                {i + 1}
+              </span>
+            );
+          })}
+          <span>
+            <FontAwesomeIcon
+              icon="fa-solid fa-angle-right"
+              className={
+                currentPage == BlogData.length / 3
+                  ? "opacity-0"
+                  : "text-gray-400 hover:text-black hover:transform hover:scale-130 hover:duration-300 cursor-pointer"
+              }
+              onClick={() => selectPageHandle(currentPage + 1)}
+            />
+          </span>
+        </div>
+      )}
     </>
   );
 };
