@@ -53,7 +53,7 @@ const Blog = () => {
 
   useEffect(() => {
     dispatch(FetchBlogData());
-  }, [dispatch]);
+  }, [BlogData]);
 
   // if there's no data yet, we can render a simple message or spinner
   if (!BlogData || BlogData.length === 0) {

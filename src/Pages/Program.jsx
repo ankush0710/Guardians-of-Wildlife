@@ -30,7 +30,7 @@ const Program = () => {
   //disppatch the funtion and render the data
   useEffect(() => {
     dispatch(FetchProgramData());
-  }, [dispatch]);
+  }, [ProgramData]);
 
   // if there's no data yet, we can render a simple message or spinner
   if (!ProgramData || ProgramData.length === 0) {
