@@ -10,20 +10,26 @@ const Blog = () => {
   const quotes = [
     {
       id: 1,
-      bgImage: "https://www.tourmyindia.com/blog//wp-content/uploads/2025/09/Wildlife-Conservation-Reasons-to-Save-Wildlife.jpg",
-      quotes: "We forget, in a world completely transformed by man, that what we’re looking at is not necessarily the environment wildlife prefer, but the depleted remnant that wildlife is having to cope with: what it has is not necessarily what it wants.",
+      bgImage:
+        "https://www.tourmyindia.com/blog//wp-content/uploads/2025/09/Wildlife-Conservation-Reasons-to-Save-Wildlife.jpg",
+      quotes:
+        "We forget, in a world completely transformed by man, that what we’re looking at is not necessarily the environment wildlife prefer, but the depleted remnant that wildlife is having to cope with: what it has is not necessarily what it wants.",
       author: "Isabell Tree, Wilding",
     },
     {
       id: 2,
-      bgImage:"https://api-ecotourism.forest.kerala.gov.in/public/uploads/slotmaster_images/1744004542_duknow3.jpeg",
-      quotes: "the updated 2016 State of Nature report discovered that the UK has lost significantly more biodiversity over the long term than the world average. Ranked twenty-ninth lowest out of 218 countries, we are among the most nature-depleted countries in the world.",
+      bgImage:
+        "https://api-ecotourism.forest.kerala.gov.in/public/uploads/slotmaster_images/1744004542_duknow3.jpeg",
+      quotes:
+        "the updated 2016 State of Nature report discovered that the UK has lost significantly more biodiversity over the long term than the world average. Ranked twenty-ninth lowest out of 218 countries, we are among the most nature-depleted countries in the world.",
       author: "Kedar dhepe",
     },
     {
       id: 3,
-      bgImage:"https://media.geeksforgeeks.org/wp-content/uploads/20230802132058/Wildlife-Sanctuary.webp",
-      quotes: "Before we can truly understand the Animal Kingdom, we must first learn to respect all of the sentient beings that exist within it",
+      bgImage:
+        "https://media.geeksforgeeks.org/wp-content/uploads/20230802132058/Wildlife-Sanctuary.webp",
+      quotes:
+        "Before we can truly understand the Animal Kingdom, we must first learn to respect all of the sentient beings that exist within it",
       author: "Paul Oxton",
     },
   ];
@@ -229,6 +235,45 @@ const Blog = () => {
           </span>
         </div>
       )}
+
+      {/* quotes section for some quotes for wildlife conservation */}
+      <h1 className="font-heading font-bold  text-center text-3xl text-black py-5">
+        Vision
+      </h1>
+
+      {quotes.map((q) => {
+        return (
+          <div
+            key={q.id}
+            id="quotes-section"
+            className="relative w-auto min-h-xl my-10 mx-3 md:min-h-72"
+          >
+            <div
+              id="card-1"
+              className="absolute w-full h-full border-2 border-gray-400 rounded-xl bg-center bg-cover  md:bg-cover"
+              style={{ backgroundImage: `url('${q.bgImage}')` }}
+            >
+              <div className="absolute inset-0 bg-black opacity-50 rounded-xl"></div>
+            </div>
+            <div id="quotes" className="relative z-10 p-5 md:p-10">
+              <p className="font-body text-lg text-gray-400 py-2">
+                <FontAwesomeIcon
+                  icon="fa-solid fa-quote-right"
+                  className="ps-3 pb-1 rotate-y-180 text-gray-400"
+                />
+                {q.quotes}
+                <FontAwesomeIcon
+                icon="fa-solid fa-quote-right"
+                className="ps-3 pb-1"
+              />
+              </p>
+              <p className="font-body font-semibold text-md text-gray-500 text-right pt-2 md:pt-10">
+                ~ {q.author}
+              </p>
+            </div>
+          </div>
+        );
+      })}
     </>
   );
 };
