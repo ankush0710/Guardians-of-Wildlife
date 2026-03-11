@@ -55,7 +55,7 @@ export const FetchWildlifeData = () => {
 
             // dispach the data come from api
             dispatch({
-                action: FETCH_WILDLIFE_DATA,
+                type: FETCH_WILDLIFE_DATA,
                 payload: response.data,
             })
         }
