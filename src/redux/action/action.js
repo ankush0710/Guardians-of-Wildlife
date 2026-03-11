@@ -1,4 +1,4 @@
-import {FETCH_PROGRAM_DATA, FETCH_BLOG_DATA} from "./actionType";
+import {FETCH_PROGRAM_DATA, FETCH_BLOG_DATA, FETCH_WILDLIFE_DATA} from "./actionType";
 import axios from "axios";
 
 
@@ -42,5 +42,25 @@ export const FetchBlogData = () => {
             console.log("blog data error: ", error);
         }
 
+    }
+}
+
+//function for fetching the wildlife data
+export const FetchWildlifeData = () => {
+    return async (dispatch) => {
+
+        //data will come from api through the axios and use redux-thunk middleware
+        try{
+            const response = await axios.get("https://sheet2api.com/v1/LZ3hk9ALR3i2/animal");
+
+            // dispach the data come from api
+            dispatch({
+                action: FETCH_WILDLIFE_DATA,
+                payload: response.data,
+            })
+        }
+        catch(error){
+            console.log("wildlife data error", error);
+        }
     }
 }
