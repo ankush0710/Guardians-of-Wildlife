@@ -69,6 +69,11 @@ const Wildlife = () => {
     <>
       {/* //search bar and filter button */}
       <div className="mx-10 text-center md: flex md:justify-between md:items-center md:gap-4">
+        <button onClick={""} className="flex justify-center items-center gap-2 cursor-pointer">
+          <FontAwesomeIcon icon="fa-solid fa-hand-point-left" className="text-2xl text-gray-500"/>
+          <span className="font-heading font-semibold text-2xl text-gray-500">Back</span>
+        </button>
+        
         <div className="relative">
           <input
             type="text"
