@@ -11,6 +11,7 @@ const Wildlife = () => {
   const [cardPerPage, setCardPerPage] = useState(9);
   const [search, setSearch] = useState("");
   const [filteredSearch, setFilteredSearch] = useState("");
+  const [status, setStatus] = useState("");
 
 
   useEffect(() => {
@@ -84,7 +85,7 @@ const Wildlife = () => {
           />
           <button
             onClick={handleSearch}
-            className="absolute inset-y-0 right-0 px-4 rounded-e-full border border-gray-500 bg-blue-500 text-white font-body font-semibold hover:bg-blue-800 cursor-pointer"
+            className="absolute inset-y-0 right-0 px-4 rounded-e-full border border-gray-500 bg-blue-500 text-white font-body font-semibold hover:bg-[#111F35] cursor-pointer"
           >
             Search
           </button>
