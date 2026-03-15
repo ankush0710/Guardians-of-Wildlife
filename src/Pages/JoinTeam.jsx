@@ -2,16 +2,42 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FetchGovProgramData } from "../redux/action/action";
 import JoinTeamCard from "../Components/JoinTeamCard";
+import Pagination from "../Components/Pagination";
 import bgImage from "../assets/Giant-panda.webp";
 
 const JoinTeam = () => {
   const dispatch = useDispatch();
   const govProgram = useSelector((state) => state.GovProgram);
+  const [current, setCurrent] = useState(0);
+  const [cardsPerView, setCardsPerView] = useState(1);
 
   //disppatch the funtion and render the data
   useEffect(() => {
     dispatch(FetchGovProgramData());
   }, [dispatch]);
+
+
+  //displaying cards in different device size
+  useEffect(()=>{
+    const handleCard = () => {
+        if(window.innerWidth >= 1024){
+            setCardsPerView(3);
+        }
+        else if(window.innerWidth >= 768){
+            setCardsPerView(2);
+        }
+        else{
+            setCardsPerView(1)
+        }
+    }
+
+    handleCard();
+    window.addEventListener("cards", handleCard);
+
+    return () => window.removeEventListener("cards", handleCard)
+  }, [])
+
+  const totalCards = Math.ceil(govProgram.length/cardsPerView);
   return (
     <>
       {/* bg -image and intro of page  */}
@@ -38,10 +64,14 @@ const JoinTeam = () => {
         Goverment Initiatives
       </h1>
       <JoinTeamCard>
-        {govProgram.map((gp) => {
+        <div className={`flex gap-4 transition-transform ease-in-out duration-400`}
+          style={{
+            transform: `translateX(-${current * 100}%)`,
+          }}>
+            {govProgram.map((gp) => {
           return (
             <>
-              <div className="min-w-78 h-auto mb-10 md:min-w-xl border-1 border-gray-400 rounded-xl">
+              <div key={gp.id} className="relative min-w-full h-auto mb-10 md:w-1/2 border-1 border-gray-400 rounded-xl lg:w-1/3">
                 <div id="crad-image" className="w-full h-75 rounded-t-xl">
                   <img src={gp.imageUrl} alt="card-image" className="w-full h-full object-cover object-center rounded-t-xl"/>
                 </div>
@@ -84,7 +114,10 @@ const JoinTeam = () => {
             </>
           );
         })}
+        </div>
       </JoinTeamCard>
+      <Pagination setCurrent={setCurrent} current={current} totalCards={totalCards}/>
+
     </>
   );
 };

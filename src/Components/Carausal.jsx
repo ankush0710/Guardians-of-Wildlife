@@ -1,26 +1,7 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Carausal = ({ carousalData }) => {
-  const [current, setCurrent] = useState(0);
-
-  // function for go to previous slide
-  const prevSlide = () => {
-    if (current == 0) {
-      setCurrent(carousalData.length - 1);
-    } else {
-      setCurrent(current - 1);
-    }
-  };
-
-  // function for go to next slide
-  const nextSlide = () => {
-    if (current == carousalData.length - 1) {
-      setCurrent(0);
-    } else {
-      setCurrent(current + 1);
-    }
-  };
+const Carausal = ({ carousalData, current }) => {
   return (
     <>
       <div className="overflow-hidden relative w-full">
@@ -69,14 +50,6 @@ const Carausal = ({ carousalData }) => {
               </>
             );
           })}
-        </div>
-        <div className="absolute top-0 h-full w-full flex justify-between items-center text-white px-5">
-          <button onClick={prevSlide} className="text-xl">
-            <FontAwesomeIcon icon="fa-solid fa-angle-left" />
-          </button>
-          <button onClick={nextSlide} className="text-xl hover:text-2xl">
-            <FontAwesomeIcon icon="fa-solid fa-angle-right" />
-          </button>
         </div>
       </div>
     </>
