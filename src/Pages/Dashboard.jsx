@@ -21,6 +21,12 @@ const Dashboard = () => {
       image:
         "https://cdn.pixabay.com/photo/2018/10/12/11/33/eagle-3741968_1280.jpg",
     },
+    {
+      id:3,
+      title: "Core Initiatives",
+      description:["", "", ""],
+      image: "https://ic.c4assets.com/vps/wildlife-rescue/9BE87BD6-23A6-43C1-95AAAD351D9256CB.jpg?imformat=chrome&resize=700px:*"
+    }
   ];
 
   // state for slider images for carousal of founder section
@@ -120,6 +126,11 @@ const Dashboard = () => {
       </h1>
       <div id="carousal" className="w-[100%] h-2xl my-10">
           <Carausal carousalData={carousalData} />
+      </div>
+
+      {/* core initiatives section  */}
+      <div id="core-initiative" className="">
+
       </div>
     </>
   );

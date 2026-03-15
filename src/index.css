@@ -10,7 +10,13 @@
 @import "tailwindcss";
 
 body {
+    background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)),url("");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
     background-color: #EBF4F6;
+    position: relative;
     margin: 0;
 }
 /* #FFFBF1 */

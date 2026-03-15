@@ -36,7 +36,7 @@ const Carausal = ({ carousalData }) => {
               <>
                 <div
                   key={d.id}
-                  className="w-full flex-shrink-0 relative h-[350px] md:h-[450px] lg:h-[550px]"
+                  className="w-full flex-shrink-0 relative h-[320px] sm:h-[380px] md:h-[450px] lg:h-[550px]"
                 >
                   <img
                     src={d.image}
@@ -46,9 +46,9 @@ const Carausal = ({ carousalData }) => {
                   <div className="bg-black absolute inset-0 opacity-50"></div>
                   <div
                     id="card"
-                    className="relative w-full md:w-[90%] lg:w-[420px] bg-[#EBF4F6] p-5 border border-gray-400 rounded-lg shadow-xl mt-4 mx-auto lg:absolute lg:bottom-20 lg:left-10"
+                    className="absolute top-50 w-full md:w-[65%] md:top-2 md:bottom-6 md:-translate-x-50 lg:w-[420px] bg-[#EBF4F6] p-4 md:p-5 md:left-80 rounded-lg shadow-xl border border-gray-300"
                   >
-                    <p className="font-body text-lg text-gray-600 py-2 md:text-center">
+                    <p className="font-body text-md text-gray-600 py-2 md:text-center">
                       <FontAwesomeIcon
                         icon="fa-solid fa-quote-right"
                         className="ps-3 pb-1 rotate-y-180"
