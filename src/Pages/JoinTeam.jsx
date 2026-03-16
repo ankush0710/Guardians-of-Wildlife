@@ -72,7 +72,7 @@ const JoinTeam = () => {
       <div className="border-1 border-gray-400 my-5 mx-3"></div>
 
       {/* carausal section for goverment initiatives and Program  */}
-      <h1 className="mb-5 text-3xl font-heading text-center font-bold text-gray-500 md:text-5xl">
+      <h1 className="my-5 text-3xl font-heading text-center font-bold text-gray-500 md:text-5xl">
         Goverment Initiatives
       </h1>
       <JoinTeamCard>
@@ -154,7 +154,7 @@ const JoinTeam = () => {
       <div className="border-1 border-gray-400 mb-5 mx-3"></div>
 
       {/* carausal section for Meet Our Team  */}
-      <h1 className="mb-5 text-3xl font-heading text-center font-bold text-gray-500 md:text-5xl">
+      <h1 className="my-5 text-3xl font-heading text-center font-bold text-gray-500 md:text-5xl">
         Meet Our Team Leaders
       </h1>
       <JoinTeamCard>
@@ -212,39 +212,43 @@ const JoinTeam = () => {
       <div className="border-1 border-gray-400 mb-5 mx-3"></div>
 
       {/* Our Work section which highlight the work in form of charts */}
-      <div id="work-section">
-        <h1 className="mb-5 text-3xl font-heading text-center font-bold text-gray-500 md:text-5xl">
-          Our Work
-        </h1>
-        <div id="chart" className="">
-          <Chart data={rescueData} />
-        </div>
+      <h1 className="mb-5 text-3xl font-heading text-center font-bold text-gray-500 md:text-5xl">
+        Our Work
+      </h1>
+      <p className="font-body text-xl text-center font-semibold">
+        This is how we contribute towards wildlife conservation by rescued many
+        different species in past 6 years.
+      </p>
+      <div id="chart" className="w-full h-[500px] my-10 ">
+        <Chart data={rescueData} />
       </div>
 
       {/* line for seperation  */}
       <div className="border-1 border-gray-400 mb-5 mx-3"></div>
 
       {/* Our Work section which highlight the work in form of charts */}
-      <div id="celebrity-section">
-        <h1 className="mb-5 text-3xl font-heading text-center font-bold text-gray-500 md:text-5xl">
-          Some Famous Personality also Work With Us
-        </h1>
-        <div id="persnality" className="mb-10">
-          {celebrityData.map((cd) => {
-            return (
-              <>
-                <ProgramCard key={cd.id}>
-                  <div className="md:flex gap-5 items-center">
-                    <div id="image" className="w-full md:min-w-md lg:min-w-xl">
-                      <img
-                        src={cd.imageUrl}
-                        alt="profile-image"
-                        className="w-full h-full object-cover rounded-lg"
-                      />
-                    </div>
-                    <div id="main-content" className="my-5 px-3 lg:px-5">
-                      <p className="font-heading text-xl font-bold text-center pb-10 underline text-gray-700">What Our Celebrities Believes about Wildlife Conservation</p>
-                      <p className="font-body text-md text-gray-600 py-2 md:text-center">
+      <h1 className="my-5 text-3xl font-heading text-center font-bold text-gray-500 md:text-5xl">
+        Some Famous Personality also Work With Us
+      </h1>
+      <div id="persnality" className="mb-10">
+        {celebrityData.map((cd) => {
+          return (
+            <>
+              <ProgramCard key={cd.id}>
+                <div className="md:flex gap-5 items-center">
+                  <div id="image" className="w-full md:min-w-md lg:min-w-xl">
+                    <img
+                      src={cd.imageUrl}
+                      alt="profile-image"
+                      className="w-full h-full object-cover rounded-lg"
+                    />
+                  </div>
+                  <div id="main-content" className="my-5 px-3 lg:px-5">
+                    <p className="font-heading text-xl font-bold text-center pb-10 underline text-gray-700">
+                      What {cd.Name} Takes an action towards Wildlife
+                      Conservation with Us
+                    </p>
+                    <p className="font-body text-md text-gray-600 py-2 md:text-center">
                       <FontAwesomeIcon
                         icon="fa-solid fa-quote-right"
                         className="ps-3 pb-1 rotate-y-180"
@@ -261,13 +265,12 @@ const JoinTeam = () => {
                     <p className="text-gray-500  font-body font-semibold text-sm text-end pt-1">
                       - {cd.Position}
                     </p>
-                    </div>
                   </div>
-                </ProgramCard>
-              </>
-            );
-          })}
-        </div>
+                </div>
+              </ProgramCard>
+            </>
+          );
+        })}
       </div>
     </>
   );

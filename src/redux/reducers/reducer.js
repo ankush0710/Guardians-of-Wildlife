@@ -25,7 +25,7 @@ const initialState = {
         {
             id:3,
             year:2022,
-            species: 220,
+            MarineSpecies: 220,
             WildlifeSpecies: 180,
             BirdsSpecies: 200,
         },
@@ -48,7 +48,7 @@ const initialState = {
             id:6,
             year:2025,
             MarineSpecies:300,
-            WildlifeSpecies: 184,
+            WildlifeSpecies: 220,
             BirdsSpecies: 305,
         },
     ],
@@ -71,7 +71,7 @@ const initialState = {
         {
             id:3,
             Name: "Lionel Messi",
-            Position: "Football Player",
+            Position: "Football Player (G.O.A.T)",
             Work: "He interacted with rescued animals, fed elephants, and had a lion cub named 'Lionel' in his honor. Messi expressed admiration for the dedicated care and rescue operations provided to endangered species at the site. His reaction was the work as 'genuinely impressive' and supported the rehabilitation of creatures such as big cats, elephants, and reptiles.",
             imageUrl: "https://ss-i.thgim.com/public/incoming/v6p28d/article70404725.ece/alternates/FREE_1200/PTI12_16_2025_000651B.jpg",
         },

@@ -12,48 +12,44 @@ import {
 import { RechartsDevtools } from '@recharts/devtools';
 
 const Chart = ({ data }) => {
+    console.log(data);
   return (
-    <ResponsiveContainer>
+    <ResponsiveContainer width="100%" height="100%">
         <BarChart
-      style={{
-        width: "100%",
-        maxWidth: "700px",
-        maxHeight: "70vh",
-        aspectRatio: 1.618,
-      }}
-      responsive
       data={data}
       margin={{
         top: 5,
         right: 0,
-        left: 0,
+        left: 5,
         bottom: 5,
       }}
     >
       <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="Species" />
-      <YAxis width="auto" />
+      <XAxis dataKey="year" padding={{left:10, right:20}}/>
+      <YAxis />
       <Tooltip />
       <Legend />
       <Bar
         dataKey="MarineSpecies"
         fill="#4C8CE4"
-        activeBar={{ fill: "#4C8CE4", stroke: "#355872" }}
         radius={[10, 10, 0, 0]}
+        animationDuration={1200}
+        label={{ position: "top" }}
       />
       <Bar
         dataKey="WildlifeSpecies"
         fill="#408A71"
-        activeBar={{ fill: "#408A71", stroke: "#237227" }}
         radius={[10, 10, 0, 0]}
+        animationDuration={1200}
+        label={{ position: "top" }}
       />
       <Bar
         dataKey="BirdsSpecies"
-        fill="#AACDDC"
-        activeBar={{ fill: "#AACDDC", stroke: "#134E8E" }}
+        fill="#8C5A3C"
         radius={[10, 10, 0, 0]}
+        animationDuration={1200}
+        label={{ position: "top" }}
       />
-      <RechartsDevtools />
     </BarChart>
     </ResponsiveContainer>
   );
