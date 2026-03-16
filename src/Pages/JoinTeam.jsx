@@ -110,6 +110,85 @@ const JoinTeam = () => {
                       <span className="font-body text-md text-gray-600">
                         {gp.description}
                       </span>
+                      <Link to="/Program" className="ps-2 text-blue-500 text-md font-light hover:cursor-pointer hover:text-blue-800">Read More...</Link>
+                    </p>
+                    
+                    <p className="font-heading font-semibold text-md text-black">
+                      Department:{" "}
+                      <span className="font-body text-md text-gray-600">
+                        {gp.goverment}
+                      </span>
+                    </p>
+                  </div>
+                </div>
+              </>
+            );
+          })}
+          </div>
+          <Pagination
+            setCurrent={setCurrent}
+            current={current}
+            totalCards={totalCards}
+          />
+        </JoinTeamCard>
+
+      {/* line for seperation  */}
+      <div className="border-1 border-gray-400 mb-5 mx-3"></div>
+
+        {/* carausal section for Meet Our Team  */}
+      <h1 className="mb-5 text-3xl font-heading text-center font-bold text-gray-500 md:text-5xl">
+        Goverment Initiatives
+      </h1>
+        <JoinTeamCard>
+          
+      <div
+        className={`flex gap-4 transition-transform ease-in-out duration-400`}
+        style={{
+          transform: `translateX(-${current * 100}%)`,
+        }}
+      >
+          {govProgram.map((gp) => {
+            return (
+              <>
+                <div
+                  key={gp.id}
+                  className="relative w-full md:w-1/2 lg:w-1/3 flex-shrink-0 min-w-0 h-auto mb-10 border-1 border-gray-400 rounded-xl"
+                >
+                  <div id="crad-image" className="w-full h-75 rounded-t-xl">
+                    <img
+                      src={gp.imageUrl}
+                      alt="card-image"
+                      className="w-full h-full object-cover object-center rounded-t-xl"
+                    />
+                  </div>
+                  <div className="border-1 border-gray-400 mx-4 "></div>
+                  <div id="card-content" className="p-5 space-y-3">
+                    <div className="flex justify-between">
+                      <p className="font-heading font-semibold text-md text-black">
+                        Project Name:{" "}
+                        <span className="font-body text-md text-gray-600">
+                          {gp.programName}
+                        </span>
+                      </p>
+                      <p className="font-heading font-semibold text-md text-black">
+                        Country:{" "}
+                        <span className="font-body text-md text-gray-600">
+                          {gp.country}
+                        </span>
+                      </p>
+                    </div>
+                    <p className="font-heading font-semibold text-md text-black">
+                      Launched Year:{" "}
+                      <span className="font-body text-md text-gray-600">
+                        {gp.year}
+                      </span>
+                    </p>
+                    <p className="font-heading font-semibold text-md text-black">
+                      About:{" "}
+                      <span className="font-body text-md text-gray-600">
+                        {gp.description}
+                      </span>
+                      <Link to="/Program" className="ps-2 text-blue-500 text-md font-light hover:cursor-pointer hover:text-blue-800">Read More...</Link>
                     </p>
                     
                     <p className="font-heading font-semibold text-md text-black">
