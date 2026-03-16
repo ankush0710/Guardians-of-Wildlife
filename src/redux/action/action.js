@@ -1,4 +1,4 @@
-import {FETCH_PROGRAM_DATA, FETCH_BLOG_DATA, FETCH_WILDLIFE_DATA, FETCH_GOV_PROGRAM_DATA} from "./actionType";
+import {FETCH_PROGRAM_DATA, FETCH_BLOG_DATA, FETCH_WILDLIFE_DATA, FETCH_GOV_PROGRAM_DATA, FETCH_TEAM_DATA} from "./actionType";
 import axios from "axios";
 
 
@@ -79,6 +79,24 @@ export const FetchGovProgramData = () => {
         }
         catch(error){
             console.log("FETCH_GOV_PROGRAM_DATA: ", FETCH_GOV_PROGRAM_DATA);
+        }
+    }
+}
+
+export const FetchTeamData = () => {
+    return async(dispatch) => {
+
+        //data will come from the api through axios and use redux thunk middlware
+        try{
+            const response = await axios.get("https://sheet2api.com/v1/eylLY7TSQE2G/teamates");
+
+            dispatch({
+                type: FETCH_TEAM_DATA,
+                payload: response.data,
+            })
+        }
+        catch(error){
+            console.log("FETCH_TEAM_DATA: ", error);
         }
     }
 }
