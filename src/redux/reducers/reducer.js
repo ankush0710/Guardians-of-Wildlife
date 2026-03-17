@@ -2,9 +2,57 @@ import React from 'react';
 import {FETCH_BLOG_DATA, FETCH_PROGRAM_DATA, FETCH_WILDLIFE_DATA, FETCH_GOV_PROGRAM_DATA, FETCH_TEAM_DATA} from '../action/actionType';
 
 const initialState = {
+    //state variable for program data
     ProgramData : [],
+
+    //state variable for blog data
     BlogData : [],
+
+    //state variable for Wildlife data
     WildlifeData: [],
+
+    //state variable for dashboard page
+    DashboardData : [
+    {
+      id: 1,
+      title: "Who We Are ?",
+      description:
+        "Guardians of Wildlife is an organization work as a dedicated steward focused on preserving biodiversity, safeguarding endangered species, and managing natural habitats against threats like poaching and climate change across the world. We continously working to protect our wildlife, our forest, our ecosystem as the human. ",
+      image:
+        "https://cdn.pixabay.com/photo/2024/05/23/10/41/dear-8782915_640.jpg",
+    },
+    {
+      id: 2,
+      title: "What We Serve ?",
+      description:
+        "We serve as an Guardians of Wildlife where we protect the plants and animal species as wildlife is a integral to the world's ecosystems, providing balance and stability to the nature's processes. National and international organizations like the World Wildlife Fund, Conservation International, the Wildlife Conservation Society, the United Nations and National Geographic itself work to support global animal and habitat conservation efforts on many different fronts.They work with the government to establish and protect public lands, like national parks and wildlife refuges.s. They help write legislation, such as the Endangered Species Act (ESA) of 1973 in the United States, to protect various species.",
+      image:
+        "https://cdn.pixabay.com/photo/2018/10/12/11/33/eagle-3741968_1280.jpg",
+    },
+  ],
+
+  // state for slider images for carousal of founder section
+    CarousalData: [
+      {
+        id: 1,
+        image:"https://img.freepik.com/free-photo/confident-young-man-looking-determined-cross-arms-chest-wearing-orange-winter-sweater-standing-ag_1258-155306.jpg?semt=ais_rp_progressive&w=740&q=80",
+        name: "Saurabh Sharma",
+        position: "CEO, Founder of Gaurdians of Wildlife",
+        message:
+          "Wildlife conservation is essential to maintain ecosystem balance, protect biodiversity, and ensure a healthy planet for future generations by safeguarding habitats and endangered species. The core message is to protect natural habitats from destruction, combat species reduction caused by humans, and recognize that wildlife is a priceless treasure",
+      },
+      {
+        id: 2,
+        image:
+          "https://as2.ftcdn.net/jpg/02/88/33/79/1000_F_288337966_NdtrgYYHMgPxvCu3mEPZZKuKecxVpXA2.jpg",
+        name: "Dr. Abhinav Thakur",
+        position: "Marketing Head, Co-founder of Gaurdians of Wildlife",
+        message:
+          "The human population has grown exponentially over the past 200 years, to more than eight billion humans as of November 2022, and it continues to rapidly grow. This means natural resources are being consumed faster than ever by the billions of people on the planet. This growth and development also endangers the habitats and existence of various types of wildlife around the world, particularly animals and plants that may be displaced for land development, used for food or other human purposes. Other threats to wildlife include the introduction of invasive species from other parts of the world, climate change, pollution, hunting, fishing and poaching.",
+      },
+    ],
+
+    //state variable for join our team page
     GovProgram: [],
     TeamData : [],
     RescueData : [
