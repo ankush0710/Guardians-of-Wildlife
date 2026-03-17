@@ -11,6 +11,7 @@ const Dashboard = () => {
   const dasboardData = useSelector((state) => state.DashboardData);
   const carousalData = useSelector((state) => state.CarousalData);
   const informationData = useSelector((state) => state.InformationData);
+  const climateWildlifeData = useSelector((state) => state.ClimateWildlifeData)
   const [current, setCurrent] = useState(0);
 
   return (
@@ -102,7 +103,7 @@ const Dashboard = () => {
         </div>
       </section>
 
-      {/*Importance of Nature and Wildlife conservation */}
+      {/*This section describes Importance of Nature and Wildlife conservation */}
       <section id="NatureAndWildlife">
         <div className="w-full md:flex md:justify-center">
           <div
@@ -110,8 +111,8 @@ const Dashboard = () => {
             style={{ backgroundImage: `url('${natureImage}')` }}
             className="relative w-full md:w-[50%] h-[350px] md:h-auto bg-cover bg-center"
           ></div>
-          <div id="text-container" className="my-5 md:w-[50%]">
-            <h1 className="font-heading text-gray-500 text-lg md:text-2xl text-center font-bold">
+          <div id="text-container" className="my-10 mx-5 md:w-[50%]">
+            <h1 className="font-heading text-gray-500 text-2xl text-center font-bold">
               Why Nature and Wildlife Conservation is important ?
             </h1>
             {informationData.map((q) => {
@@ -121,7 +122,7 @@ const Dashboard = () => {
                     icon="fa-solid fa-check"
                     className="text-[#111F35] text-2xl font-bold"
                   />
-                  <span className="text-gray-600 font-body px-3 leading-2">
+                  <span className="text-gray-600 text-lg font-body px-3 leading-10">
                     {q.message}
                   </span>
                 </p>
@@ -141,6 +142,58 @@ const Dashboard = () => {
           </div>
         </div>
       </section>
+
+      {/*This section describes How climate change can affect wildlife */}
+      <section id="ClimateAndWildlife">
+        <div className="w-full mb-10 md:mt-5 md:flex md:justify-center md:flex-row-reverse">
+          <div
+            id="image-container flex-1"
+            style={{ backgroundImage: `url('${climateImage}')` }}
+            className="relative w-full md:w-[50%] h-[350px] md:h-auto bg-cover bg-center"
+          ></div>
+           <div id="text-container" className="my-10 mx-5 md:w-[50%]">
+            <h1 className="font-heading text-gray-500 text-2xl text-center font-bold">
+              How Climate Change affects Wildlife ?
+            </h1>
+            {climateWildlifeData.map((s) => {
+              return (
+                <>
+                <p className="p-3">
+                  <FontAwesomeIcon
+                    icon="fa-solid fa-check"
+                    className="text-[#111F35] text-2xl font-bold"
+                  />
+                  <span className="text-gray-600 text-lg font-heading font-semibold px-3">
+                    {s.subHeading} 
+                  </span>
+                </p>
+                <p className="pl-15 pb-5 text-gray-600 text-lg font-heading px-3">{s.message}</p>
+                <p className="pl-15 pb-5 text-gray-600 text-lg font-heading">Example:-</p>
+                {
+                  s.example.map((example) => {
+                    return <p className=" pl-20 pt-2"><span><FontAwesomeIcon icon="fa-solid fa-arrow-right" className="px-5"/></span>{example}</p>
+                  })
+                }
+                </>
+              );
+            })}
+            {/* <p className="font-body text-lg text-gray-600 pt-10 md:text-base text-center md:text-xl">
+              <FontAwesomeIcon
+                icon="fa-solid fa-quote-right"
+                className="ps-3 pb-1 rotate-y-180"
+              />
+              Protect nature today, so life can thrive tomorrow.
+              <FontAwesomeIcon
+                icon="fa-solid fa-quote-right"
+                className="ps-3 pb-1"
+              />
+            </p> */}
+          </div>
+        </div>
+      </section>
+
+
+      
     </>
   );
 };

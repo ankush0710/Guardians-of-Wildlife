@@ -56,7 +56,7 @@ const initialState = {
     ],
 
     //state variable for climat change and wildlife section
-    climateWlidlifeData : [
+    ClimateWildlifeData : [
          {
         id: 1,
         subHeading: "Habitat Loss and Changes",
@@ -82,7 +82,7 @@ const initialState = {
         subHeading: "Ocean Changes",
         message:
           "Climate change affects oceans through warming and acidification:",
-        example: ["Coral reefs suffer (coral bleaching)."],
+        example: ["Coral reefs suffer (coral bleaching).", "Marine ecosystems become unstable."],
          },
     ],
 
