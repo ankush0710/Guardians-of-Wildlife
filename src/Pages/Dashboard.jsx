@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Carausal from "../Components/Carausal";
-import ProgramCard from "../Components/ProgramCard";
+import natureImage from "../assets/nature-pengiune.webp"
 import Pagination from "../Components/Pagination";
 import bannerVideo from "../assets/bannerVideo.mp4";
 
@@ -9,6 +10,25 @@ const Dashboard = () => {
   const dasboardData = useSelector((state) => state.DashboardData);
   const carousalData = useSelector((state) => state.CarousalData);
   const [current, setCurrent] = useState(0);
+
+  const informationData= [
+    {
+      id:1,
+      message:"Nature is the foundation of life on Earth. Forests, rivers, oceans, and wildlife together create a delicate balance that supports all living beings, including humans. When we protect nature, we are ultimately protecting ourselves."
+    },
+    {
+      id:2,
+      message:"Wildlife plays a crucial role in maintaining ecological stability. Every species, from the smallest insect to the largest mammal, contributes to the health of ecosystems. They help in pollination, seed dispersal, controlling pests, and maintaining food chains. The loss of even a single species can disrupt this balance and lead to long-term environmental consequences."
+    },
+    {
+      id:3,
+      message:"Conservation of nature is also essential for combating climate change. Trees absorb carbon dioxide, regulate temperature, and provide oxygen. Healthy ecosystems act as natural buffers against disasters like floods, droughts, and storms."
+    },
+    {
+      id:4,
+      message:"Moreover, nature holds cultural, medicinal, and economic value. Many communities depend directly on forests and wildlife for their livelihoods. Preserving biodiversity ensures that future generations can continue to benefit from these resources."
+    },
+  ]
 
   return (
     <>
@@ -86,10 +106,10 @@ const Dashboard = () => {
 
       {/* meet the founder of the oganization section  */}
       <section id="carousal">
-        <h1 className="my-10 text-3xl font-heading text-center font-bold text-gray-500 md:text-5xl">
+        <h1 className="mt-10 text-3xl font-heading text-center font-bold text-gray-500 md:text-5xl">
           Meet Our Founders
         </h1>
-        <div id="carousal" className="relative w-[100%] h-2xl my-10">
+        <div id="carousal" className="relative w-[100%] h-2xl mt-10">
           <Carausal current={current} carousalData={carousalData} />
           <Pagination
             current={current}
@@ -101,10 +121,24 @@ const Dashboard = () => {
 
       {/*Importance of Nature and Wildlife conservation */}
       <section id="NatureAndWildlife">
-        <div id="nature-and-wildlife" className="w-full h-auto">
-          <ProgramCard>
-              
-          </ProgramCard>
+        <div className="w-full">
+              <div id="image-container" 
+              style={{ backgroundImage: `url('${natureImage}')`}}
+              className="relative w-full h-[350px] md:h-[720px] bg-cover bg-center"
+              ></div>
+              <div id="text-container" className="my-5">
+                <h1 className="font-heading text-gray-500 text-lg md:text-2xl text-center font-bold">Why Nature and Wildlife Conservation is important ?</h1>
+                {
+                  informationData.map((q) => {
+                    return(
+                      <p>
+                        <FontAwesomeIcon icon="fa-solid fa-check" />
+
+                      </p>
+                    )
+                  })
+                }
+              </div>
         </div>
       </section>
     </>
