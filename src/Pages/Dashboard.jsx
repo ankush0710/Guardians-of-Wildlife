@@ -235,6 +235,19 @@ const Dashboard = () => {
           </div>
         </div>
       </section>
+
+
+      <div className="border-1 border-gray-400 mx-6"></div>
+      {/* In This section we shown which agencies and ministries are funded  */}
+      <section id="FundedInfo">
+        <div className="w-full mb-10">
+           <div id="text-container" className="w-full my-10 mx-5">
+            <h1 className="font-heading text-[#44A194] pb-10 text-2xl text-center font-bold md:text-4xl">
+              Funded By
+            </h1>
+          </div>
+        </div>
+      </section>
     </>
   );
 };

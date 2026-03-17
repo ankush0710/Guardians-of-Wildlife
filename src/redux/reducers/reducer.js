@@ -141,6 +141,49 @@ const initialState = {
         }
     ],
 
+    //state variable for logos of all funding organization
+    FundingData: [
+        {
+            id:1,
+            logoUrl: "https://ard.wb.gov.in/assets/images/wbard_logo.png",
+        },
+        {
+            id:2,
+            logoUrl: "https://minfahd.gov.in/sites/default/files/2022-07/minfahd.png",
+        },
+        {
+            id:3,
+            logoUrl: "https://vishnuias.com/wp-content/uploads/2021/06/Untitled-design.jpg",
+        },
+        {
+            id:4,
+            logoUrl: "https://upload.wikimedia.org/wikipedia/commons/5/58/Flag-United-Nations-Logo.jpg",
+        },
+        {
+            id:5,
+            logoUrl: "https://media.telanganatoday.com/wp-content/uploads/2024/03/Vantara.png",
+        },
+        {
+            id:6,
+            logoUrl: "https://logowik.com/content/uploads/images/the-international-monetary-fund-imf2806.jpg",
+        },
+        {
+            id:7,
+            logoUrl: "https://images.squarespace-cdn.com/content/v1/671fdf20f8c6e262b41fdb46/871b81b4-93bd-4813-8d64-cb7e9d6a31c1/ICAW.png",
+        },
+        {
+            id:8,
+            logoUrl: "https://media.licdn.com/dms/image/v2/C4E0BAQHO2Xy54ZumXw/company-logo_100_100/company-logo_100_100/0/1635244775017/global_animal_law_gal_association_logo?e=2147483647&v=beta&t=TS36e2UpZJfYG30tjXfOEYxZ2Ck_ArVILgd_cEyVQ1g",
+        },
+        {
+            id:9,
+            logoUrl: "https://i.ytimg.com/vi/XceGrhIwZ2o/sddefault.jpg",
+        },
+        {
+            id:10,
+            logoUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSrgBO-avzkmGf-98iT6-P-M7jxuwLAXkKkA&s",
+        } 
+    ],
 
     //state variable for join our team page
     GovProgram: [],
