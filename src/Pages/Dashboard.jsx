@@ -12,8 +12,9 @@ const Dashboard = () => {
   const dasboardData = useSelector((state) => state.DashboardData);
   const carousalData = useSelector((state) => state.CarousalData);
   const informationData = useSelector((state) => state.InformationData);
-  const climateWildlifeData = useSelector((state) => state.ClimateWildlifeData)
+  const climateWildlifeData = useSelector((state) => state.ClimateWildlifeData);
   const initiatives = useSelector((state) => state.Initiatives);
+  const fundingData = useSelector((state) => state.FundingData);
   const [current, setCurrent] = useState(0);
   const [isShown, setIsShown] = useState(null);
 
@@ -115,7 +116,6 @@ const Dashboard = () => {
             className="relative w-full md:w-[50%] h-[350px] md:h-auto bg-cover bg-center"
           >
             <div className="absolute inset-0 bg-black opacity-50"></div>
-
           </div>
           <div id="text-container" className="my-10 mx-5 md:w-[50%]">
             <h1 className="font-heading text-[#406093] text-2xl text-center font-bold md:text-4xl">
@@ -154,39 +154,48 @@ const Dashboard = () => {
         <div className="w-full mb-10 md:mt-5 md:flex md:justify-center md:flex-row-reverse">
           <div
             id="image-container flex-1"
-            style={{ backgroundImage: `url('${climateImage}')`, 
-             }}
-            
+            style={{ backgroundImage: `url('${climateImage}')` }}
             className="relative w-full md:w-[50%] h-[350px] md:h-auto bg-cover bg-center"
           >
             <div className="absolute inset-0 bg-black opacity-50"></div>
-
           </div>
-           <div id="text-container" className="my-10 mx-5 md:w-[50%]">
+          <div id="text-container" className="my-10 mx-5 md:w-[50%]">
             <h1 className="font-heading text-[#44A194] pb-10 text-2xl text-center font-bold lg:text-4xl">
               How Climate Change affects Wildlife ?
             </h1>
             {climateWildlifeData.map((s) => {
               return (
                 <>
-                <p className="p-3">
-                  <FontAwesomeIcon
-                    icon="fa-solid fa-check"
-                    className="text-[#2FA4D7] text-2xl font-bold"
-                  />
-                  <span className="text-[#408A71] text-lg font-heading font-semibold px-3 md:text-xl">
-                    {s.subHeading} 
-                  </span>
-                </p>
-                <p className="pl-15 pb-5 text-gray-600 text-lg font-heading px-3 md:text-xl">{s.message}</p>
-                <p className="pl-15 text-gray-600 text-lg font-semibold font-heading md:text-xl">Example:-</p>
-                <div className="py-8">
-                  {
-                  s.example.map((example) => {
-                    return <p className=" pl-20 md:text-[17px]"><span><FontAwesomeIcon icon="fa-solid fa-arrow-right" className="px-5 text-[#408A71]"/></span>{example}</p>
-                  })
-                }
-                </div>
+                  <p className="p-3">
+                    <FontAwesomeIcon
+                      icon="fa-solid fa-check"
+                      className="text-[#2FA4D7] text-2xl font-bold"
+                    />
+                    <span className="text-[#408A71] text-lg font-heading font-semibold px-3 md:text-xl">
+                      {s.subHeading}
+                    </span>
+                  </p>
+                  <p className="pl-15 pb-5 text-gray-600 text-lg font-heading px-3 md:text-xl">
+                    {s.message}
+                  </p>
+                  <p className="pl-15 text-gray-600 text-lg font-semibold font-heading md:text-xl">
+                    Example:-
+                  </p>
+                  <div className="py-8">
+                    {s.example.map((example) => {
+                      return (
+                        <p className=" pl-20 md:text-[17px]">
+                          <span>
+                            <FontAwesomeIcon
+                              icon="fa-solid fa-arrow-right"
+                              className="px-5 text-[#408A71]"
+                            />
+                          </span>
+                          {example}
+                        </p>
+                      );
+                    })}
+                  </div>
                 </>
               );
             })}
@@ -204,31 +213,44 @@ const Dashboard = () => {
           >
             <div className="absolute inset-0 bg-black opacity-50"></div>
           </div>
-           <div id="text-container" className="my-10 mx-5 md:w-[50%]">
+          <div id="text-container" className="my-10 mx-5 md:w-[50%]">
             <h1 className="font-heading text-[#44A194] pb-10 text-2xl text-center font-bold md:text-4xl">
-              Core Initiatives 
+              Core Initiatives
             </h1>
-            {
-            initiatives.map((i) => {
+            {initiatives.map((i) => {
               return (
                 <>
-                <p className="p-3">
-                  <FontAwesomeIcon
-                    icon="fa-solid fa-check-double"
-                    className="text-[#111FA2] text-xl font-bold"
-                  />
-                  <span className="text-gray-500 text-xl font-heading font-semibold px-3 cursor-pointer hover:text-2xl hover:text-[#]" onMouseEnter={() => setIsShown(i.id)} onMouseLeave={() => setIsShown(null)}>
-                    {i.initiative} 
-                  </span>
-                </p>
+                  <p className="p-3">
+                    <FontAwesomeIcon
+                      icon="fa-solid fa-check-double"
+                      className="text-[#111FA2] text-xl font-bold"
+                    />
+                    <span
+                      className="text-gray-500 text-xl font-heading font-semibold px-3 cursor-pointer hover:text-2xl hover:text-[#]"
+                      onMouseEnter={() => setIsShown(i.id)}
+                      onMouseLeave={() => setIsShown(null)}
+                    >
+                      {i.initiative}
+                    </span>
+                  </p>
 
-                <div className={`overflow-hidden transition-all ease-in-out duration-500 ${(isShown === i.id)?"py-5 opacity-100":"max-h-0 opacity-0"}`}>
-                  {
-                  i.description.map((description) => {
-                    return <p className=" pl-10 pt-2 font-semibold text-[#406093]"><span><FontAwesomeIcon icon="fa-solid fa-arrow-right" className="px-5 text-[#406093]"/></span>{description}</p>
-                  })
-                }
-                </div>
+                  <div
+                    className={`overflow-hidden transition-all ease-in-out duration-500 ${isShown === i.id ? "py-5 opacity-100" : "max-h-0 opacity-0"}`}
+                  >
+                    {i.description.map((description) => {
+                      return (
+                        <p className=" pl-10 pt-2 font-semibold text-[#406093]">
+                          <span>
+                            <FontAwesomeIcon
+                              icon="fa-solid fa-arrow-right"
+                              className="px-5 text-[#406093]"
+                            />
+                          </span>
+                          {description}
+                        </p>
+                      );
+                    })}
+                  </div>
                 </>
               );
             })}
@@ -236,15 +258,23 @@ const Dashboard = () => {
         </div>
       </section>
 
-
       <div className="border-1 border-gray-400 mx-6"></div>
       {/* In This section we shown which agencies and ministries are funded  */}
       <section id="FundedInfo">
-        <div className="w-full mb-10">
-           <div id="text-container" className="w-full my-10 mx-5">
+        <div className="w-full overflow-hidden mb-10">
+          <div id="text-container" className="w-full mt-5 mx-5">
             <h1 className="font-heading text-[#44A194] pb-10 text-2xl text-center font-bold md:text-4xl">
-              Funded By
+              Funded Organizations
             </h1>
+          </div>
+          <div id="logo-container" className="w-full px-5 grid grid-cols-3 gap-4 justify-items-center md:grid-cols-5 md:gap-6">
+            {fundingData.map((fd) => {
+              return (
+                <div key={fd.id} className="w-26 h-26 md:w-32 md:h-32">
+                  <img src={fd.logoUrl} alt={fd.id} className="w-full h-full object-contain object-center" />
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
