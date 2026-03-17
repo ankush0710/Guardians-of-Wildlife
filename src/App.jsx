@@ -2,7 +2,7 @@ import React from 'react';
 import {Routes, Route} from 'react-router-dom'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {faInstagram, faFacebook, faTwitter, faLinkedin} from '@fortawesome/free-brands-svg-icons';
-import {faCheck, faAngleDown, faArrowDown, faArrowRight, faQuoteLeft, faQuoteRight, faAngleRight, faAngleLeft, faHandPointLeft, faCheck} from '@fortawesome/free-solid-svg-icons';
+import {faCheck, faAngleDown, faArrowDown, faArrowRight, faQuoteLeft, faQuoteRight, faAngleRight, faAngleLeft, faHandPointLeft} from '@fortawesome/free-solid-svg-icons';
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
 import Dashboard from "./Pages/Dashboard";
@@ -14,7 +14,7 @@ import ProgramDetails from "./Pages/ProgramDetails";
 import Blog from "./Pages/Blog";
 
 function App() {
-  library.add(faInstagram, faFacebook, faTwitter, faLinkedin, faCheck, faAngleDown, faArrowDown, faArrowRight, faQuoteLeft, faQuoteRight, faAngleRight, faAngleLeft, faHandPointLeft, faCheck);
+  library.add(faInstagram, faFacebook, faTwitter, faLinkedin, faCheck, faAngleDown, faArrowDown, faArrowRight, faQuoteLeft, faQuoteRight, faAngleRight, faAngleLeft, faHandPointLeft);
 
   return (
     <>

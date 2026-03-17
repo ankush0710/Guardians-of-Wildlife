@@ -31,6 +31,61 @@ const initialState = {
     },
   ],
 
+  //state variable for nature and wildlife section
+  InformationData : [
+      {
+        id: 1,
+        message:
+          "Nature is the foundation of life on Earth. Forests, rivers, oceans, and wildlife together create a delicate balance that supports all living beings, including humans. When we protect nature, we are ultimately protecting ourselves.",
+      },
+      {
+        id: 2,
+        message:
+          "Wildlife plays a crucial role in maintaining ecological stability. Every species, from the smallest insect to the largest mammal, contributes to the health of ecosystems. They help in pollination, seed dispersal, controlling pests, and maintaining food chains. The loss of even a single species can disrupt this balance and lead to long-term environmental consequences.",
+      },
+      {
+        id: 3,
+        message:
+          "Conservation of nature is also essential for combating climate change. Trees absorb carbon dioxide, regulate temperature, and provide oxygen. Healthy ecosystems act as natural buffers against disasters like floods, droughts, and storms.",
+      },
+      {
+        id: 4,
+        message:
+          "Moreover, nature holds cultural, medicinal, and economic value. Many communities depend directly on forests and wildlife for their livelihoods. Preserving biodiversity ensures that future generations can continue to benefit from these resources.",
+      },
+    ],
+
+    //state variable for climat change and wildlife section
+    climateWlidlifeData : [
+         {
+        id: 1,
+        subHeading: "Habitat Loss and Changes",
+        message:
+          "Rising temperatures and shifting rainfall patterns can alter or destroy natural habitats",
+        example: ["Forests may turn into grasslands or dry out.", "Wetlands can shrink or disappear.", "Melting ice affects species like polar animals that depend on cold environments."],
+         },
+      {
+        id: 2,
+        subHeading: "Migration and Movement",
+        message:
+          "Many animals migrate based on seasonal climate patterns. Changes in temperature or weather can:",
+        example: ["Shift migration timing.", "Force animals to move to new areas.", "Cause conflicts when species enter human habitats."],
+         },
+      {
+        id: 3,
+        subHeading: "Extreme Weather Events",
+        message:"Events like floods, droughts, wildfires, and storms are becoming more intense:",
+        example: ["Destroy nests and habitats.", "Kill animals directly.", "Reduce long-term survival chances."],
+         },
+      {
+        id: 4,
+        subHeading: "Ocean Changes",
+        message:
+          "Climate change affects oceans through warming and acidification:",
+        example: ["Coral reefs suffer (coral bleaching)."],
+         },
+    ],
+
   // state for slider images for carousal of founder section
     CarousalData: [
       {
