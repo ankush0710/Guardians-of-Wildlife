@@ -4,8 +4,8 @@ import Pagination from "../Components/Pagination";
 import bannerVideo from "../assets/bannerVideo.mp4";
 
 const Dashboard = () => {
-  const [current, setCurrent] = useState(0)
-  
+  const [current, setCurrent] = useState(0);
+
   // local state for dashboard content only
   const dashboardData = [
     {
@@ -127,12 +127,11 @@ const Dashboard = () => {
       <h1 className="my-10 text-3xl font-heading text-center font-bold text-gray-500 md:text-5xl">
         Meet Our Founders
       </h1>
-      <div id="carousal" className="w-[100%] h-2xl my-10">
+      <div id="carousal" className="relative w-[100%] h-2xl my-10">
           <Carausal current={current} carousalData={carousalData} />
-          <Pagination current={current} setCurrent={setCurrent} data={carousalData}/>
+          <Pagination current={current} setCurrent={setCurrent} totalCards={carousalData.length}/>
       </div>
       
-
       {/* core initiatives section  */}
       <div id="core-initiative" className="">
         
