@@ -141,6 +141,50 @@ const initialState = {
         }
     ],
 
+    //state variable for goverment recognition
+    recognitionData: [
+        {
+            id:1,
+            leaderName: "Shri Narendra Modi",
+            position: "Hon. Prime Minister Of India",
+            imageUrl: "https://www.hindustantimes.com/ht-img/img/2024/03/08/550x309/ANI-20240308094-0_1709893371275_1709893704137.jpg",
+            description: "",
+            quotes: "",
+        },
+         {
+            id:2,
+            leaderName: "Donald. J Trump",
+            position: "President Of The United States of America",
+            imageUrl: "https://dims.apnews.com/dims4/default/f7c767a/2147483647/strip/true/crop/3000x2000+0+0/resize/599x399!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2F9c%2F0c%2Fe000e408f5fe8cfb39dd62e2aff7%2F4c0ca452925f4db3b462836625024ec2",
+            description: "",
+            quotes: "",
+        },
+         {
+            id:3,
+            leaderName: "Vladmir Putin",
+            position: "President Of Russian Federation",
+            imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDd7yugwLVgKIbFfdOsejjVuwVWEUJ5-T_bw&s",
+            description: "",
+            quotes: "",
+        },
+         {
+            id:4,
+            leaderName: "Dr. Akinwumi Adesina's ",
+            position: "President of African Devlopment ",
+            imageUrl: "https://www.afdb.org/sites/default/files/1500-prst-receiving-abn-award.jpg",
+            description: "",
+            quotes: "",
+        },
+        {
+            id:5,
+            leaderName: "Carter Roberts",
+            position: "CEO of World Wildlife Fund ",
+            imageUrl: "https://c8.alamy.com/comp/2N4120P/actor-and-activist-leonardo-dicaprio-pauses-while-speaking-after-accepting-an-award-at-theclinton-global-citizen-awards-dinner-in-new-york-sunday-sept-21-2014-left-is-carter-roberts-president-and-ceo-of-world-wildlife-fund-who-presented-him-the-award-ap-photocraig-ruttle-2N4120P.jpg",
+            description: "",
+            quotes: "",
+        },
+    ],
+
     //state variable for logos of all funding organization
     FundingData: [
         {
@@ -269,16 +313,19 @@ const initialState = {
         {
             id:1,
             volunteer: "20,000",
+            country: "Works Globally",
             bgImage: "https://thumbs.dreamstime.com/b/african-elephant-bull-walking-sand-road-wilderness-32046828.jpg"
         },
         {
             id:2,
-            volunteer: "7000",
+            volunteer: "3000",
+            country: "Works in India",
             bgImage: "https://upload.wikimedia.org/wikipedia/commons/0/0f/Grosser_Panda.JPG"
         },
         {
             id:3,
-            volunteer: "13,000",
+            volunteer: "16,000",
+            country: "Works in Other Country (USA, Africa, China, Italy, Russia)",
             bgImage: "https://en.nabu.de/imperia/md/nabu/images/international/asien/230426-nabu-saiga-antelope-p-romanov.jpeg"
         },
     ]
