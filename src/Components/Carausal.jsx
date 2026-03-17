@@ -1,7 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Carausal = ({ carousalData, curren }) => {
+const Carausal = ({ carousalData, current }) => {
   return (
     <>
       <div className="overflow-hidden relative w-full">
