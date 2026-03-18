@@ -153,7 +153,7 @@ const Wildlife = () => {
             <Cards key={Wdata.id}>
               {/* background image div */}
               <div
-                style={{ backgroundImage: `url('${Wdata.imageUrl}')` }}
+                style={{ backgroundImage: `url('${Wdata.imageUrl}')`}}
                 className="absolute w-full h-full bg-cover bg-center rounded-lg"
               >
                 {/* overlay div  */}
