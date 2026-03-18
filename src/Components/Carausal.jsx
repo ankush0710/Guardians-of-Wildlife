@@ -26,7 +26,7 @@ const Carausal = ({ carousalData, current }) => {
                     className="w-full h-full object-cover object-center"
                   />
 
-                  {/* Gradient Overlay (better than black box) */}
+                  {/* Gradient Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent"></div>
 
                   {/* Content Card */}

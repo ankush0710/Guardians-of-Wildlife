@@ -16,7 +16,7 @@ const Wildlife = () => {
 
   useEffect(() => {
     dispatch(FetchWildlifeData());
-  }, [WildlifeData]);
+  }, [dispatch]);
 
   // search logic for search data by name
   const filterName = useMemo(() => {
@@ -152,7 +152,7 @@ const Wildlife = () => {
                 className="absolute w-full h-full bg-cover bg-center rounded-lg"
               >
                 {/* overlay div  */}
-                <div className="absolute inset-0 bg-black opacity-50 rounded-lg"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/20 rounded-lg"></div>
               </div>
               <div className="relative z-10 p-6 space-y-1 group-hover:text-hidden">
                 <h1 className="text-white font-heading text-xl">
