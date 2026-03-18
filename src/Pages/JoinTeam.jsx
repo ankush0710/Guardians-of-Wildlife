@@ -257,15 +257,15 @@ const JoinTeam = () => {
                       What {cd.Name} Takes an action towards Wildlife
                       Conservation with Us
                     </p>
-                    <p className="font-body text-md text-gray-600 py-2 md:text-center">
+                    <p className="font-body text-md text-gray-700 py-2 md:text-center">
                       <FontAwesomeIcon
                         icon="fa-solid fa-quote-right"
-                        className="ps-3 pb-1 rotate-y-180"
+                        className="ps-3 pb-1 rotate-y-180 text-blue-500"
                       />
                       {cd.Work}
                       <FontAwesomeIcon
                         icon="fa-solid fa-quote-right"
-                        className="ps-3 pb-1"
+                        className="ps-3 pb-1 text-blue-500"
                       />
                     </p>
                     <p className="text-gray-500 font-body font-semibold text-lg text-right pt-10">
@@ -435,6 +435,29 @@ const JoinTeam = () => {
                       Contact Number
                     </label>
                   </div>
+
+                  {/* input box for select country  */}
+                  {/* <div className="relative z-0 w-full mb-5 mt-3 group">
+                    <Field
+                      as="select"
+                      type="text"
+                      name="selectCountry"
+                      id="selectCountry"
+                      className="block py-2.5 px-0 w-full text-md bg-transparent border-0 border-b-2 border-default-medium border-[#8A7650] appearance-none focus:outline-none focus:ring-0 focus:border-[#562F00] peer"
+                      placeholder=""
+                    />
+                    <ErrorMessage
+                      name="selectCountry"
+                      component="div"
+                      className="text-red-500 text-sm mt-1"
+                    />
+                    <label
+                      for="contactNumber"
+                      className="absolute font-body text-md text-[#8A7650] duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
+                    >
+                      Contact Number
+                    </label>
+                  </div> */}
 
                   {/* message for query  */}
                   <div className="relative z-0 w-full mb-5 mt-3 group">
