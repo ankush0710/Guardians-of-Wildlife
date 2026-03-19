@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import bannerImage from "../assets/blog-banner-image.png";
 import { useDispatch, useSelector } from "react-redux";
 import ProgramCard from "../Components/ProgramCard";
 import { Link } from "react-router-dom";
