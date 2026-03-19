@@ -21,7 +21,7 @@ const Pagination = ({ TotalPage, currentPage, setCurrentPage }) => {
               icon="fa-solid fa-arrow-left"
               className={
                 currentPage > 1
-                  ? "text-gray-400 hover:text-black hover:transform hover:scale-130 hover:duration-300 cursor-pointer"
+                  ? "font-medium text-2xl text-blue-500 hover:text-blue-600 hover:transform hover:-translate-x-3 hover:duration-500 cursor-pointer"
                   : "opacity-0"
               }
               onClick={() => selectPageHandle(currentPage - 1)}
@@ -35,7 +35,7 @@ const Pagination = ({ TotalPage, currentPage, setCurrentPage }) => {
               icon="fa-solid fa-arrow-right"
               className={
                 currentPage !== TotalPage
-                  ? "text-gray-400 hover:text-black hover:transform hover:scale-130 hover:duration-300 cursor-pointer"
+                  ? "font-medium text-2xl text-blue-500 hover:text-blue-600 hover:transform hover:translate-x-3 hover:duration-500 cursor-pointer"
                   : "opacity-0"
               }
               onClick={() => selectPageHandle(currentPage + 1)}

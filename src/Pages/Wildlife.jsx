@@ -85,7 +85,8 @@ const Wildlife = () => {
   return (
     <>
       {/* bg -image and intro of page  */}
-      <div id="bg-image" className="w-full min-h-[80vh]">
+      <section id="bg-image">
+        <div className="w-full min-h-[80vh]">
         <div
           id="banner-image"
           style={{ backgroundImage: `url('${WildlifeBgImage}')` }}
@@ -109,6 +110,7 @@ const Wildlife = () => {
           </div>
         </div>
       </div>
+      </section>
 
       {/* button for back to default state  */}
       <div className="mx-3 my-2 md:my-10 flex justify-between items-end md:flex-row md:justify-between md:items-center md:mx-15">
@@ -126,9 +128,9 @@ const Wildlife = () => {
             </span>
           </button>
         )}
-
-        <div className="flex flex-col gap-5 items-center justify-between md:flex-1 md:flex-row">
-          {/* //search bar and filter button */}
+        
+        {/* //search bar and filter button */}
+        <div className={(search || catagory) ? "flex flex-col gap-5 items-center justify-between md:flex-1 md:flex-row" : "flex flex-1 justify-center items-center"}>
           <div className="relative mx-auto">
             <input
               type="text"
