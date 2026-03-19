@@ -11,6 +11,7 @@ const Wildlife = () => {
   const [cardPerPage, setCardPerPage] = useState(9);
   const [search, setSearch] = useState("");
   const [filteredSearch, setFilteredSearch] = useState("");
+  const [catagory, setCatagory] = useState("");
   const [isHidden, setIsHidden] = useState(true);
 
   useEffect(() => {
@@ -19,10 +20,18 @@ const Wildlife = () => {
 
    // search logic for search data by name
   const filterName = useMemo(() => {
-    return WildlifeData.filter((wd) =>
-      wd.name.toLowerCase().includes(search.toLowerCase()),
+    return WildlifeData.filter((wd) => {
+
+      //matching the string which user input in the search bar
+      const matchSearch = wd.name.toLowerCase().includes(search.toLowerCase());
+
+      // matching the option user selected from dropdown 
+      const matchCatagory = catagory ? wd.status.toLowerCase() === catagory.toLowerCase(): true;
+
+      return matchSearch && matchCatagory
+    }
     );
-  }, [WildlifeData, search]);
+  }, [WildlifeData, search, catagory]);
 
     //pagination logic start here
   const currentCard = useMemo(() => {
@@ -44,6 +53,7 @@ const Wildlife = () => {
   const handleBack = () => {
       setSearch("");
       setFilteredSearch("");
+      setCatagory("");
       setCurrentPage(1);
   }
   //method for displaying 8 cards in md devices and 9 cards in lg devices
@@ -80,7 +90,7 @@ const Wildlife = () => {
     <>
       {/* button for back to default state  */}
       <div className="mx-3 flex justify-between items-end md:flex-row md:justify-between md:items-center md:mx-15">
-        {search && (
+        {(search || catagory) && (
           <button
           onClick={handleBack}
           className="flex justify-center items-center gap-2 cursor-pointer"
@@ -122,7 +132,7 @@ const Wildlife = () => {
               className="bg-gray-300 flex items-center gap-8 px-5 py-2 border border-gray-500 cursor-pointer"
             >
               <span className="text-xl font-body font-bold text-gray-700">
-                Species
+                {catagory ? catagory:"Species"}
               </span>
               <FontAwesomeIcon
                 icon="fa-solid fa-angle-down"
@@ -138,16 +148,19 @@ const Wildlife = () => {
                   : "border-2 border-gray-300 top-12 shadow-xl absolute z-30"
               }
             >
-              <p className="text-lg font-body font-semibold bg-white border-1 border-gray-300 text-center text-nowrap text-gray-800 cursor-pointer py-2 px-13 hover:bg-gray-400">
+              <p onClick={() => {setCatagory(""); setIsHidden(true);}} className="text-lg font-body font-semibold bg-white border-1 border-gray-300 text-center text-nowrap text-gray-800 cursor-pointer py-2 px-13 hover:bg-gray-400">
+                All
+              </p>
+              <p onClick={() => {setCatagory("Endangered"); setIsHidden(true); setCurrentPage(1)}} className="text-lg font-body font-semibold bg-white border-1 border-gray-300 text-center text-nowrap text-gray-800 cursor-pointer py-2 px-13 hover:bg-gray-400">
                 Endangered
               </p>
-              <p className="text-lg font-body font-semibold bg-white border-1 border-gray-300 text-center text-nowrap text-gray-800 cursor-pointer py-2 px-13 hover:bg-gray-400">
+              <p onClick={() => {setCatagory("Vulnerable"); setIsHidden(true); setCurrentPage(1)}} className="text-lg font-body font-semibold bg-white border-1 border-gray-300 text-center text-nowrap text-gray-800 cursor-pointer py-2 px-13 hover:bg-gray-400">
                 Vulnerable
               </p>
-              <p className="text-lg font-body font-semibold bg-white border-1 border-gray-300 text-center text-nowrap text-gray-800 cursor-pointer py-2 px-13 hover:bg-gray-400">
+              <p onClick={() => {setCatagory("Least Concern"); setIsHidden(true); setCurrentPage(1)}} className="text-lg font-body font-semibold bg-white border-1 border-gray-300 text-center text-nowrap text-gray-800 cursor-pointer py-2 px-13 hover:bg-gray-400">
                 Least Concern
               </p>
-              <p className="text-lg font-body font-semibold bg-white border-1 border-gray-300 text-center text-nowrap text-gray-800 cursor-pointer py-2 px-13 hover:bg-gray-400">
+              <p onClick={() => {setCatagory("Near Threatened"); setIsHidden(true); setCurrentPage(1)}} className="text-lg font-body font-semibold bg-white border-1 border-gray-300 text-center text-nowrap text-gray-800 cursor-pointer py-2 px-13 hover:bg-gray-400">
                 Near Threatened
               </p>
             </div>
