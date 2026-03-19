@@ -5,7 +5,7 @@ import Carausal from "../Components/Carausal";
 import natureImage from "../assets/nature-pengiune.webp";
 import climateImage from "../assets/climate-and-wildlife.webp";
 import initiativeImage from "../assets/initiative-bg-image.jpg";
-import Pagination from "../Components/Pagination";
+import CaraousalPagination from "../Components/CaraousalPagination";
 import bannerVideo from "../assets/bannerVideo.mp4";
 
 const Dashboard = () => {
@@ -100,7 +100,7 @@ const Dashboard = () => {
         </h1>
         <div id="carousal" className="relative w-[100%] h-4xl mt-10">
           <Carausal current={current} carousalData={carousalData} />
-          <Pagination
+          <CaraousalPagination
             current={current}
             setCurrent={setCurrent}
             totalCards={carousalData.length}
@@ -266,7 +266,7 @@ const Dashboard = () => {
         </h1>
         <div id="carousal" className="relative w-[100%] h-4xl  mt-10">
           <Carausal current={current} carousalData={recognitionData} />
-          <Pagination
+          <CaraousalPagination
             current={current}
             setCurrent={setCurrent}
             totalCards={recognitionData.length}
