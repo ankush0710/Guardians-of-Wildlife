@@ -10,24 +10,19 @@ const Wildlife = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [cardPerPage, setCardPerPage] = useState(9);
   const [search, setSearch] = useState("");
-  const [filteredSearch, setFilteredSearch] = useState(WildlifeData);
+  const [filteredSearch, setFilteredSearch] = useState("");
   const [isHidden, setIsHidden] = useState(true);
 
   useEffect(() => {
     dispatch(FetchWildlifeData());
-  }, [dispatch]);
-
-  const handleSearch = () => {
-    setFilteredSearch(search);
-    setCurrentPage(1);
-  };
+  }, []);
 
    // search logic for search data by name
   const filterName = useMemo(() => {
     return WildlifeData.filter((wd) =>
       wd.name.toLowerCase().includes(search.toLowerCase()),
     );
-  }, [filteredSearch]);
+  }, [WildlifeData, search]);
 
     //pagination logic start here
   const currentCard = useMemo(() => {
@@ -48,18 +43,27 @@ const Wildlife = () => {
   //function for back to original data
   const handleBack = () => {
       setSearch("");
-      setFilteredSearch(WildlifeData);
+      setCurrentPage(1);
   }
-
   //method for displaying 8 cards in md devices and 9 cards in lg devices
   useEffect(() => {
+    const handleResize = () => {
     if (window.innerWidth >= 1024) {
       setCardPerPage(9);
     } else if (window.innerWidth >= 768) {
       setCardPerPage(8);
     }
-  });
+    else{
+      setCardPerPage(4)
+    }
+  };
 
+    handleResize();  //run on initial render
+
+    window.addEventListener("resize", handleResize);
+    return() => window.addEventListener("resize", handleResize);
+  }, []);
+  
   //if data is yet to come then loading text will display
   if (!WildlifeData || WildlifeData.length == 0) {
     return (
@@ -99,7 +103,9 @@ const Wildlife = () => {
               onChange={(e) => setSearch(e.target.value)}
             />
             <button
-              onClick={handleSearch}
+              onClick={()=>{setFilteredSearch(search);
+                            setCurrentPage(1);
+              }}
               className="absolute inset-y-0 right-0 px-4 rounded-e-full border border-gray-500 bg-blue-500 text-white font-body font-semibold hover:bg-[#111F35] cursor-pointer"
             >
               Search
@@ -150,7 +156,7 @@ const Wildlife = () => {
       <div className="w-full h-auto my-10 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {currentCard.map((Wdata) => {
           return (
-            <Cards key={Wdata.id}>
+            <Cards key={Wdata.id} className="transform transition-all duration-300 ease-in-out hover:scale-120 hover:shadow-3xl hover:z-10">
               {/* background image div */}
               <div
                 style={{ backgroundImage: `url('${Wdata.imageUrl}')`}}
