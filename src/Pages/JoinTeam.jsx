@@ -55,7 +55,8 @@ const JoinTeam = () => {
   return (
     <>
       {/* bg -image and intro of page  */}
-      <div id="bg-image" className="w-full min-h-[80vh]">
+      <section id="bg-image" >
+        <div className="w-full min-h-[80vh]">
         <div
           id="banner-image"
           style={{ backgroundImage: `url('${bgImage}')` }}
@@ -69,6 +70,7 @@ const JoinTeam = () => {
           </div>
         </div>
       </div>
+      </section>
 
       {/* line for seperation  */}
       <div className="border-1 border-gray-400 my-5 mx-3"></div>
