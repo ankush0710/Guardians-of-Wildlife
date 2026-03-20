@@ -9,42 +9,41 @@ const ContactUs = () => {
   const faqData = [
     {
       id: 1,
-      question: "What is Guardian of Wildlife ?",
+      question: "What is WildSphere ?",
       answer:
-        "Guardians of Wildlife is an organization which is certified by the goverment of 25+ independent countries. We continously work for the animal of different species and different region. We save their species. We care them to grow and save them from extintion.",
+        "WildSphere is an organization which is certified by the goverment of 25+ independent countries. We continously work for the animal of different species of different region. We save their species. We care them to grow and save them from extinction.",
     },
     {
       id: 2,
       question: "How we Contact the Guardian of Wildlife Team ?",
       answer:
-        "Guardians of Wildlife is an organization which is certified by the goverment of 25+ independent countries. We continously work for the animal of different species and different region. We save their species. We care them to grow and save them from extintion.",
+        "You can contact us via filling contact form or via email mentioned below and also you can can call us on mentioned number. We will available 24x7 for you help",
     },
     {
       id: 3,
       question: "What are the Operative Hours ?",
       answer:
-        "Guardians of Wildlife is an organization which is certified by the goverment of 25+ independent countries. We continously work for the animal of different species and different region. We save their species. We care them to grow and save them from extintion.",
+        "We are avalaible 24x7 to help and resolve your problem. Our team is working very hard to save wildlife and contribute to our ecosystem.",
     },
     {
       id: 4,
       question: "Can I visit office for ?",
       answer:
-        "Guardians of Wildlife is an organization which is certified by the goverment of 25+ independent countries. We continously work for the animal of different species and different region. We save their species. We care them to grow and save them from extintion.",
+        "Yes, You can also visit our office currently we have our office in 15+ countrie. Our headquater is located in Bangalore, India",
     },
     {
       id: 5,
       question: "Can I contact to the team in weekends or holidays ?",
       answer:
-        "Guardians of Wildlife is an organization which is certified by the goverment of 25+ independent countries. We continously work for the animal of different species and different region. We save their species. We care them to grow and save them from extintion.",
+        "Yes, our team is working 365 days and 24x7 hrs. We fully try to save each and every life. Whatever the possible things we can do, we will do.",
     },
     {
       id: 6,
       question: "How much time it takes to revert back of query ?",
       answer:
-        "Guardians of Wildlife is an organization which is certified by the goverment of 25+ independent countries. We continously work for the animal of different species and different region. We save their species. We care them to grow and save them from extintion.",
-    }
+        "Within 24 hrs we revert back to you. Sometime it may vary due to tarffic as we receives many call at same time.",
+    },
   ];
-
 
   const [isSubmit, setIsSubmit] = useState(false);
 
@@ -98,6 +97,23 @@ const ContactUs = () => {
 
   return (
     <>
+      {/* quote section for some quotes  */}
+      <section id="quote-section">
+        <div className="mb-10 border-t border-b border-gray-500 py-3 mx-10">
+          <p className="text-[#406093] text-lg font-semibold leading-relaxed text-center md:text-2xl">
+            <FontAwesomeIcon
+              icon="fa-solid fa-quote-left"
+              className="me-2 mb-2 text-blue-500 text-lg"
+            />
+            Every drop counts, every action matters. Our oceans, our responsibility.
+            <FontAwesomeIcon
+              icon="fa-solid fa-quote-right"
+              className="ms-2 mb-2 text-blue-500 text-lg"
+            />
+          </p>
+        </div>
+      </section>
+
       <div id="container" className="relative md:flex md:justify-between">
         {/* address of offices in INDIA and LA  */}
         <div
@@ -109,7 +125,7 @@ const ContactUs = () => {
           </h1>
           <div
             id="card-1"
-            className="h-lg max-w-xl bg-[#ECE7D1] rounded-xl shadow-lg p-4"
+            className="h-lg max-w-xl bg-[#BED4CB] rounded-xl shadow-lg p-4"
           >
             <p className="font-body text-lg font-semibold pb-4">
               Benguluru Office
@@ -139,7 +155,7 @@ const ContactUs = () => {
           </div>
           <div
             id="card-2"
-            className="h-lg max-w-xl bg-[#ECE7D1] rounded-xl shadow-lg p-4"
+            className="h-lg max-w-xl bg-[#BED4CB] rounded-xl shadow-lg p-4"
           >
             <p className="font-body text-lg font-semibold pb-4">
               Los Angeles Office
@@ -181,7 +197,7 @@ const ContactUs = () => {
             </h1>
             <div
               id="contact-form"
-              className="bg-[#ECE7D1] rounded-xl flex flex-col py-15 px-10 mx-3 my-10 relative md:w-auto lg:w-2xl md:shadow-lg"
+              className="bg-[#BED4CB] rounded-xl flex flex-col py-15 px-10 mx-3 my-10 relative md:w-auto lg:w-2xl md:shadow-lg"
             >
               <Form>
                 <div className="md:flex md:gap-4">
@@ -327,7 +343,7 @@ const ContactUs = () => {
         {isSubmit && (
           <div
             id="success-message"
-            className="absolute bottom-1/5 mx-4 bg-[#ECE7D1] border-2 border-gray-200 min-h-64 min-w-96 rounded-xl shadow-lg p-4 flex flex-col gap-4 justify-center items-center tranisiton duration-800 ease-in-out md:min-w-86 md:top-1/3 md:left-1/3"
+            className="absolute bottom-1/5 mx-4 bg-[#BED4CB] border-2 border-gray-200 min-h-64 min-w-96 rounded-xl shadow-lg p-4 flex flex-col gap-4 justify-center items-center tranisiton duration-800 ease-in-out md:min-w-86 md:top-1/3 md:left-1/3"
           >
             <div
               id="icon"
@@ -358,11 +374,16 @@ const ContactUs = () => {
         )}
       </div>
 
+       {/* line for seperation  */}
+      <div className="border-1 border-gray-400 my-5 mx-3"></div>
+
       {/* some Frequentlt Asked Question to help user */}
-      <div id="faq-container">
-        <h1 className="font-heading text-3xl font-bold text-center">FAQ's</h1>
-        <div className="my-10 mx-3">
-          <Accordian key={faqData.id} data={faqData}/>
+      <div id="faq-container" className="mt-5">
+        <h1 className="font-heading text-3xl font-bold text-center">
+          Frequently Asked Questions
+        </h1>
+        <div className="m-10">
+          <Accordian data={faqData} />
         </div>
       </div>
     </>
