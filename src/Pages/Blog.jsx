@@ -79,7 +79,7 @@ const Blog = () => {
     return (
       <div className="w-full my-10 text-center">
         <p className="font-body text-lg">
-          Loading Blogs please wait for few sec...{" "}
+          Loading Blogs please wait for few sec...
         </p>
       </div>
     );

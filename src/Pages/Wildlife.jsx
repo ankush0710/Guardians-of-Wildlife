@@ -18,7 +18,7 @@ const Wildlife = () => {
 
   useEffect(() => {
     dispatch(FetchWildlifeData());
-  }, []);
+  }, [dispatch]);
 
   // search logic for search data by name
   const filterName = useMemo(() => {

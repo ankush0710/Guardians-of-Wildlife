@@ -5,7 +5,7 @@ const ProgramCard = ({children}) => {
     <>
       <div
         id="program-card"
-        className="w-contain h-auto mx-3 my-10 p-2 rounded-lg shadow-xl flex flex-col gap-5 items-center border border-gray-300 bg-[#BED4CB] md:h-2xl md:flex md:flex-row md:items-start"
+        className= "bg-[#BED4CB] rounded-xl shadow-md p-4 flex flex-col h-full justify-between hover:shadow-xl hover:-translate-y-1 transition duration-300"
       >
         
        {children}

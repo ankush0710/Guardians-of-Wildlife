@@ -1,141 +1,155 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ProgramCard from "../Components/ProgramCard";
 import { Link } from "react-router-dom";
 import { FetchProgramData } from "../redux/action/action";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Pagination from "../Components/Pagination";
+import ProgramBgImage from "../assets/program-bg-image.jpg";
 
 const Program = () => {
   const dispatch = useDispatch();
   const ProgramData = useSelector((state) => state.ProgramData);
   const [currentPage, setCurrentPage] = useState(1);
-  const [cardsPerPage, setCardsPerPage] = useState(3);
+  const [cardPerPage, setCardPerPage] = useState(3);
 
   //pagination logic
-  const lastIndex = currentPage * cardsPerPage;
-  const startIndex = lastIndex - cardsPerPage;
-  const currentNumber = ProgramData.slice(startIndex, lastIndex);
+  const currentCard = useMemo(() => {
+    const lastIndex = currentPage * cardPerPage;
+    const startIndex = lastIndex - cardPerPage;
+    return ProgramData.slice(startIndex, lastIndex);
+  }, [currentPage, cardPerPage, ProgramData]);
 
-  const selectPageHandle = (selectedPage) => {
-    if (
-      selectedPage >= 1 &&
-      selectedPage !== currentPage &&
-      selectedPage <= ProgramData.length / 3
-    ) {
-      setCurrentPage(selectedPage);
+  const TotalPage = Math.ceil(ProgramData.length / cardPerPage);
+
+  useEffect(()=>{
+    const handleResize = () => {
+      if(window.innerWidth >= 1024)
+        setCardPerPage(3);
+      else if(window.innerWidth >= 768)
+        setCardPerPage(2);
+      else
+        setCardPerPage(3);
     }
-  };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize)
+  }, []);
+
+  useEffect(() => {
+      if (currentPage > TotalPage) setCurrentPage(1);
+    }, [ProgramData]);
 
   //disppatch the funtion and render the data
   useEffect(() => {
     dispatch(FetchProgramData());
-  }, [ProgramData]);
+  }, [dispatch]);
 
   // if there's no data yet, we can render a simple message or spinner
   if (!ProgramData || ProgramData.length === 0) {
     return (
       <div className="w-full my-10 text-center">
-        <p className="font-body text-lg">Loading programs...</p>
+        <p className="font-body text-lg"> Loading Blogs please wait for few sec...</p>
       </div>
     );
   }
   //else part
   return (
     <>
-      <div className="w-full my-10">
-        <h1 className="font-heading text-3xl font-bold text-center pb-10">
-          Our Programs
-        </h1>
-        <div className="w-full h-auto grid grid-cols-1 gap-4">
-          {currentNumber.map((data) => (
-            <ProgramCard key={data.id}>
-              <div
-                id="card-image"
-                className="relative w-full h-70 md:max-h-5xl md:w-7xl"
-              >
-                <img
-                  src={data.imageUrl}
-                  alt="image"
-                  className="w-full h-full object-cover rounded-lg"
-                />
-                <div className="absolute inset-0 rounded-lg bg-black z-10 opacity-50 hover:opacity-0"></div>
-              </div>
-
-              {/* heading and tthe main description about the project  */}
-              <div id="description" className="space-y-3 md:pt-5">
-                <h1 className="font-heading font-bold text-2xl">
-                  {data.programName}
-                </h1>
-                <p className="font-body text-sm">{data.description}</p>
-              </div>
-
-              {/* button to see full detailed article of the respective project  */}
-              <Link to={`/Program/${data.id}`} className="pb-10 mx-3 my-auto">
-                <button
-                  type="submit"
-                  className="text-[#8A7650] font-semibold font-body bg-transparent border-2 border-[#8A7650] px-6 py-2 rounded-full cursor-pointer group hover:text-[#562F00] hover:bg-[#8A7650] hover:border-2 hover:border-[#562F00] hover:duration-600"
-                >
-                  <p className="text-nowrap">
-                    View Details
-                    <span>
-                      <FontAwesomeIcon
-                        icon="fa-solid fa-arrow-down"
-                        className="ps-5 group-hover:translate-y-1 transition duration-300"
-                      />
-                    </span>
-                  </p>
-                </button>
-              </Link>
-            </ProgramCard>
-          ))}
-
-          {/* number and next, previous arrow  */}
-          {ProgramData.length > 0 && (
-            <div
-              id="pagination"
-              className="flex justify-center text-xl mt-5 space-x-5 font-heading font-semibold"
-            >
-              <span>
+      {/* bg -image and intro of page  */}
+      <section id="bg-image">
+        <div className="w-full min-h-[80vh] my-10">
+          <div
+            id="banner-image"
+            style={{ backgroundImage: `url('${ProgramBgImage}')` }}
+            className="absolute top-0 w-full min-h-screen z-0 overflow-hidden bg-no-repeat bg-cover bg-center flex items-center justify-center"
+          >
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20"></div>
+            <div className="absolute z-10 inset-0 top-1/2 space-y-4 lg:px-80">
+              <h1 className="text-2xl text-center text-[#EFD2B0] font-heading font-bold">
                 <FontAwesomeIcon
-                  icon="fa-solid fa-angle-left"
-                  className={
-                    currentPage > 1
-                      ? "text-gray-400 hover:text-black hover:transform hover:scale-130 hover:duration-300 cursor-pointer"
-                      : "opacity-0"
-                  }
-                  onClick={() => selectPageHandle(currentPage - 1)}
+                  icon="fa-solid fa-quote-left"
+                  className="me-2 mb-1"
                 />
-              </span>
-              {[...Array(ProgramData.length / 3)].map((_, i) => {
-                return (
-                  <span
-                    key={i}
-                    className={
-                      currentPage == i + 1
-                        ? "text-black transform translate scale-140 ease-in-out duration-300 cursor-pointer"
-                        : "text-gray-400 cursor-pointer"
-                    }
-                    onClick={() => selectPageHandle(i + 1)}
-                  >
-                    {i + 1}
-                  </span>
-                );
-              })}
-              <span>
+                No water, no life. No blue, no green.
                 <FontAwesomeIcon
-                  icon="fa-solid fa-angle-right"
-                  className={
-                    currentPage == ProgramData.length / 3
-                      ? "opacity-0"
-                      : "text-gray-400 hover:text-black hover:transform hover:scale-130 hover:duration-300 cursor-pointer"
-                  }
-                  onClick={() => selectPageHandle(currentPage + 1)}
+                  icon="fa-solid fa-quote-right"
+                  className="ms-2 mb-1"
                 />
-              </span>
+              </h1>
             </div>
-          )}
+          </div>
         </div>
-      </div>
+      </section>
+
+      {/* main content of the page where all cards and card details were dsplayed  */}
+      <section id="main-content">
+        <div className="w-full mb-10">
+          <h1 className="font-heading text-[#406093] text-4xl font-bold text-center pb-10">
+            Our Programs
+          </h1>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-6">
+            {currentCard.map((data) => (
+              <ProgramCard key={data.id}>
+                <div
+                  id="card-image"
+                  className="relative w-full h-78 flex-shrink-0"
+                >
+                  <img
+                    src={data.imageUrl}
+                    alt="image"
+                    className="w-full h-full object-coverx` rounded-lg"
+                  />
+                  <div className="absolute inset-0 rounded-lg bg-black opacity-50 hover:opacity-0"></div>
+                </div>
+
+                {/* heading and tthe main description about the project  */}
+                <div
+                  id="description"
+                  className="flex flex-col gap-6 pt-4 flex-grow"
+                >
+                  <h1 className="font-heading text-center font-bold text-xl">
+                    {data.programName}
+                  </h1>
+                  <p className="font-body text-md line-clam-3">
+                    <span className="font-bold text-lg pe-2 text-black">Description:</span>
+                    {data.description.slice(0, 200)}
+                  </p>
+                </div>
+
+                {/* button to see full detailed article of the respective project  */}
+                <div className="flex justify-center mt-8 md:justify-end">
+                  <Link to={`/Program/${data.id}`}>
+                    <button
+                      type="submit"
+                      className="text-[#8A7650] font-semibold font-body bg-transparent border-2 border-[#8A7650] px-6 py-2 rounded-full cursor-pointer group hover:text-[#562F00] hover:bg-[#8A7650] hover:border-2 hover:border-[#562F00] hover:duration-600"
+                    >
+                      <p className="text-nowrap">
+                        View Details
+                        <span>
+                          <FontAwesomeIcon
+                            icon="fa-solid fa-arrow-down"
+                            className="ps-5 group-hover:translate-y-1 transition duration-300"
+                          />
+                        </span>
+                      </p>
+                    </button>
+                  </Link>
+                </div>
+              </ProgramCard>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* number and next, previous arrow  */}
+      <Pagination
+        TotalPage={TotalPage}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+      />
     </>
   );
 };
