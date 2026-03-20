@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FetchBlogData } from "../redux/action/action";
-import bgImage from "../assets/blog-bg-image.jpg"
+import bgImage from "../assets/blog-bg-image.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import Pagination from "../Components/Pagination";
@@ -48,6 +48,24 @@ const Blog = () => {
 
   const TotalPage = Math.ceil(BlogData.length / cardPerPage);
 
+  //method for displaying card for different devices
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setCardPerPage(3);
+      } else if (window.innerWidth >= 768) {
+        setCardPerPage(2);
+      } else {
+        setCardPerPage(3);
+      }
+    };
+
+    handleResize(); //run on initial render
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+
+  }, []);
+
   useEffect(() => {
     if (currentPage > TotalPage) setCurrentPage(1);
   }, [BlogData]);
@@ -71,20 +89,40 @@ const Blog = () => {
   return (
     <>
       {/*bg image and intro of the page */}
-      <div id="bg-image" className="w-full min-h-[80vh]">
-        <div
-          id="banner-image"
-          style={{ backgroundImage: `url('${bgImage}')` }}
-          className="absolute top-0 w-full min-h-screen z-0 overflow-hidden bg-no-repeat bg-cover bg-center flex items-center justify-center"
-        >
-          <div className="bg-black absolute inset-0 opacity-50"></div>
-          <div className="absolute z-10 inset-0 top-1/2 space-y-4">
-            <h1 className="text-4xl text-center text-[#44A194] font-heading font-bold md:text-7xl">
-              Blogs
-            </h1>
+      <section id="bg-image">
+        <div className="w-full min-h-[80vh]">
+          <div
+            id="banner-image"
+            style={{ backgroundImage: `url('${bgImage}')` }}
+            className="absolute top-0 w-full min-h-screen z-0 overflow-hidden bg-no-repeat bg-cover bg-center flex items-center justify-center"
+          >
+            <div className="bg-black absolute inset-0 opacity-50"></div>
+            <div className="absolute z-10 inset-0 top-1/2 space-y-4">
+              <h1 className="text-4xl text-center text-[#44A194] font-heading font-bold md:text-7xl">
+                Blogs
+              </h1>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* quote section for some quotes  */}
+      <section id="quote-section">
+        <div className="mt-10 border-t border-b border-gray-500 py-3 mx-10">
+          <p className="text-[#C44A3A] text-lg font-semibold leading-relaxed text-center md:text-2xl">
+            <FontAwesomeIcon
+              icon="fa-solid fa-quote-left"
+              className="me-2 mb-2 text-blue-500 text-lg"
+            />
+            Respect Earth, Respect life
+            <FontAwesomeIcon
+              icon="fa-solid fa-quote-right"
+              className="ms-2 mb-2 text-blue-500 text-lg"
+            />
+          </p>
+        </div>
+      </section>
+
       {/* main container that contains cards  */}
       <section id="main-container">
         <div
@@ -97,57 +135,55 @@ const Blog = () => {
                 <div
                   key={data.id}
                   id="card"
-                  className="w-full max-h-xl border p-6 rounded-xl bg-[#ECE7D1] md:max-w-sm"
+                  className="w-full border p-6 rounded-xl bg-[#BED4CB] md:max-w-sm flex flex-col justify-between"
                 >
                   {/* heading section of blog card  */}
-                  <div
-                    id="heading"
-                    className="text-center font-semibold font-heading text-xl"
-                  >
-                    {data.blogTitle}
-                  </div>
-                  <div className="border-b-2 border-gray-400 my-5"></div>
+                  <section id="heading-section">
+                    <div className="text-center font-semibold font-heading text-xl">
+                      {data.blogTitle}
+                    </div>
+                  </section>
+
+                  {/* line for seperation  */}
+                  <div className="border-b-2 border-gray-500 my-5"></div>
 
                   {/* main description section of blog card  */}
-                  <div id="body" className="flex flex-col gap-4">
-                    {/* card image for came from api  */}
-                    <div
-                      id="card-image"
-                      className="relative w-full h-78 border border-gray-500 rounded-xl"
-                    >
+                  <section id="description-section">
+                    <div id="body" className="flex flex-col gap-5 flex-grow">
+                      {/* card image came from api  */}
                       <img
                         src={data.imageUrl}
                         alt="sample-image"
-                        className="w-full h-full object-cover rounded-xl"
+                        className="w-full h-80 md:h-50 object-cover object-center rounded-xl"
                       />
-                    </div>
-                    <div className="flex flex-col justify-center gap-5 mb-5">
-                      <p className="font-heading text-xl font-bold">
+                      <p className="font-heading text-lg font-bold">
                         Author :-
                         <span className="font-body text-md font-normal ps-2">
                           {data.author}
                         </span>
                       </p>
-                      <p className="font-heading text-xl font-bold">
+                      <p className="font-heading text-lg font-bold">
                         Last Update :-
                         <span className="font-body text-md font-normal ps-2">
                           {data.lastupdate}
                         </span>
                       </p>
-                      <p className="font-heading text-xl font-bold">
+                      <p className="font-heading text-lg font-bold line-clamp-3">
                         Description :-
-                        <span className="font-body text-md font-normal ps-2">
+                        <span className="font-body text-md font-normal ps-2 ">
                           {data.description}
                         </span>
                       </p>
                     </div>
+                  </section>
 
-                    {/* button to see full detailed article of the respective project  */}
-                    <div className="my-3">
+                  {/* button to see full detailed article of the respective project  */}
+                  <section id="butto-section">
+                    <div className="mt-8 flex items-center flex-grow">
                       <Link to={data.websiteUrl}>
                         <button
                           type="submit"
-                          className="text-[#8A7650] font-semibold font-body bg-transparent border-2 border-[#8A7650] px-6 py-2 rounded-full cursor-pointer group hover:text-[#562F00] hover:bg-[#8A7650] hover:border-2 hover:border-[#562F00] hover:duration-600"
+                          className="text-[#8A7650] font-semibold font-body bg-transparent border-2 border-[#8A7650] px-4 py-2 rounded-full cursor-pointer group hover:text-[#562F00] hover:bg-[#8A7650] hover:border-2 hover:border-[#562F00] hover:duration-600"
                         >
                           <p className="text-nowrap">
                             Visit Website
@@ -161,39 +197,45 @@ const Blog = () => {
                         </button>
                       </Link>
                     </div>
-                    <div className="border-b-2 border-gray-400 py-5"></div>
+                  </section>
 
-                    {/* social media link icons  */}
-                    <div className="flex gap-4 items-center">
+                  {/* line for seperation  */}
+                  <div className="border-b-2 border-gray-400 my-5"></div>
+
+                  {/* social media link icons  */}
+                  <section id="social-medin">
+                    <div className="flex items-center gap-4">
                       <h1 className="font-heading font-bold text-xl">
                         Follow us :-
                       </h1>
-                      <a href={data.facebook}>
-                        <FontAwesomeIcon
-                          icon="fa-brands fa-facebook"
-                          className="text-blue-500 text-sm border rounded-full p-2 hover:text-blue-800"
-                        />
-                      </a>
-                      <a href={data.twitter}>
-                        <FontAwesomeIcon
-                          icon="fa-brands fa-twitter"
-                          className="text-blue-500 text-sm border rounded-full p-2 hover:text-blue-800"
-                        />
-                      </a>
-                      <a href={data.instagram}>
-                        <FontAwesomeIcon
-                          icon="fa-brands fa-instagram"
-                          className="text-red-400 text-sm border rounded-full p-2 hover:text-red-800"
-                        />
-                      </a>
-                      <a href={data.linkdin}>
-                        <FontAwesomeIcon
-                          icon="fa-brands fa-linkedin"
-                          className="text-blue-500 text-sm border rounded-full p-2 hover:text-blue-800"
-                        />
-                      </a>
+                      <div className="flex items-center gap-3">
+                        <a href={data.facebook}>
+                          <FontAwesomeIcon
+                            icon="fa-brands fa-facebook"
+                            className="w-5 h-5 rounded-full text-blue-500 border p-2 flex items-center justify-center hover:text-blue-800 hover:scale-110 transition"
+                          />
+                        </a>
+                        <a href={data.twitter}>
+                          <FontAwesomeIcon
+                            icon="fa-brands fa-twitter"
+                            className="w-5 h-5 rounded-full text-blue-500 border p-2 flex items-center justify-center hover:text-blue-800 hover:scale-110 transition"
+                          />
+                        </a>
+                        <a href={data.instagram}>
+                          <FontAwesomeIcon
+                            icon="fa-brands fa-instagram"
+                            className="w-5 h-5 rounded-full text-red-500 border p-2 flex items-center justify-center hover:text-red-800 hover:scale-110 transition"
+                          />
+                        </a>
+                        <a href={data.linkdin}>
+                          <FontAwesomeIcon
+                            icon="fa-brands fa-linkedin"
+                            className="w-5 h-5 rounded-full text-blue-500 border p-2 flex items-center justify-center hover:text-blue-800 hover:scale-110 transition"
+                          />
+                        </a>
+                      </div>
                     </div>
-                  </div>
+                  </section>
                 </div>
               </>
             );
@@ -208,7 +250,7 @@ const Blog = () => {
         setCurrentPage={setCurrentPage}
       />
 
-        {/* line for sperate  */}
+      {/* line for speration  */}
       <div className="border-1 border-gray-500 mx-10 my-5"></div>
 
       {/* quotes section for some quotes for wildlife conservation */}
@@ -221,11 +263,11 @@ const Blog = () => {
             <div
               key={q.id}
               id="quotes-section"
-              className="relative w-auto min-h-xl my-10 mx-3 md:min-h-72"
+              className="relative w-auto h-[400px] my-10 mx-5 md:mx-20 md:min-h-72"
             >
               <div
                 id="card-1"
-                className="absolute w-full h-full border-2 border-gray-400 rounded-xl bg-center bg-cover  md:bg-cover"
+                className="absolute inset-0 w-full h-full border-2 border-gray-400 rounded-xl bg-center bg-cover"
                 style={{ backgroundImage: `url('${q.bgImage}')` }}
               >
                 <div className="absolute inset-0 bg-black opacity-50 rounded-xl"></div>
@@ -242,7 +284,7 @@ const Blog = () => {
                     className="ps-3 pb-1"
                   />
                 </p>
-                <p className="font-body font-semibold text-md text-white text-right pt-2 md:pt-10">
+                <p className="font-body font-semibold text-md text-white text-right pt-10">
                   ~ {q.author}
                 </p>
               </div>
