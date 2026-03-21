@@ -325,7 +325,7 @@ const initialState = {
         },
     ],
 
-    countryDocumentMap: [{
+    countryDocumentMap: {
         India : "Aadhaar card / PAN card",
         USA : "Green Card",
         UK: "National Insurance",
@@ -333,7 +333,7 @@ const initialState = {
         Canada: "SSIN / Passport",
         Austalia: "Driver License / Passport",
         SouthAfrica: "Passport / Citizenship",
-    }]
+    }
 }
 
 const reducer = (state=initialState, action) => {
