@@ -391,9 +391,13 @@ const JoinTeam = () => {
 
           <div
             id="cards-section"
-            className="w-full flex flex-col gap-6 mx-5 px-5 flex-1"
+            className="w-full lg:w-1/2 px-3 mt-10"
           >
-            {volunteerData.map((vd) => (
+            <h1 className="font-heading text-gray-600 text-3xl font-bold text-center">
+              Volunteers
+            </h1>
+           <div className="flex flex-col gap-5 py-15 px-3">
+             {volunteerData.map((vd) => (
               <div
                 id={vd.id}
                 style={{ backgroundImage: `url('${vd.bgImage}')` }}
@@ -406,6 +410,7 @@ const JoinTeam = () => {
                 </p>
               </div>
             ))}
+           </div>
           </div>
 
           {/* form to where user enter thier details  */}
@@ -416,7 +421,14 @@ const JoinTeam = () => {
               validationSchema={validationSchema}
               onSubmit={onSubmit}
             >
-              {({ values, setFieldValue, errors, isValid, dirty, isSubmit }) => (
+              {({
+                values,
+                setFieldValue,
+                errors,
+                isValid,
+                dirty,
+                isSubmit,
+              }) => (
                 console.log("ERRORS", errors),
                 (
                   <div id="contact-form" className="relative mt-10">
@@ -458,7 +470,6 @@ const JoinTeam = () => {
                               name="lastName"
                               id="lastName"
                               className="block py-2.5 px-0 w-full text-md bg-transparent border-0 border-b-2 border-default-medium border-[#8A7650] appearance-none focus:outline-none focus:ring-0 focus:border-[#562F00] peer"
-                              
                             />
                             <ErrorMessage
                               name="lastName"
@@ -655,17 +666,17 @@ const JoinTeam = () => {
                         {/* form submitt button  */}
                         <div className="absolute right-0 px-10">
                           <button
-                              type="submit"
-                              disabled={!(isValid && dirty) || isSubmit}
-                              className={`px-8 py-2 rounded-full font-semibold border-2 
+                            type="submit"
+                            disabled={!(isValid && dirty) || isSubmit}
+                            className={`px-8 py-2 rounded-full font-semibold border-2 
                                 ${
                                   !(isValid && dirty)
                                     ? "text-gray-500 font-semibold font-body bg-gray-300 border-2 border-gray-500 cursor-not-allowed"
                                     : "text-[#8A7650] font-semibold font-body bg-transparent border-2 border-[#8A7650] px-8 py-2 rounded-full hover:text-[#562F00] hover:bg-[#8A7650] hover:border-2 hover:border-[#562F00] hover:duration-600"
                                 }`}
-                            >
-                              {isSubmit ? "Submitting..." : "Submit"}
-                            </button>
+                          >
+                            {isSubmit ? "Submitting..." : "Submit"}
+                          </button>
                         </div>
                       </Form>
                     </div>
