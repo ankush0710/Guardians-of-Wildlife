@@ -12,13 +12,13 @@ const ContactUs = () => {
   const faqData = [
     {
       id: 1,
-      question: "What is WildSphere ?",
+      question: "What is Wildlife Nexus ?",
       answer:
-        "WildSphere is an organization which is certified by the goverment of 25+ independent countries. We continously work for the animal of different species of different region. We save their species. We care them to grow and save them from extinction.",
+        "Wildlife Nexus is an organization which is certified by the goverment of 25+ independent countries. We continously work for the animal of different species of different region. We save their species. We care them to grow and save them from extinction.",
     },
     {
       id: 2,
-      question: "How we Contact the Guardian of Wildlife Team ?",
+      question: "How we Contact the Wildlife Nexus Team ?",
       answer:
         "You can contact us via filling contact form or via email mentioned below and also you can can call us on mentioned number. We will available 24x7 for you help",
     },
@@ -32,13 +32,13 @@ const ContactUs = () => {
       id: 4,
       question: "Can I visit office for ?",
       answer:
-        "Yes, You can also visit our office currently we have our office in 15+ countrie. Our headquater is located in Bangalore, India",
+        "Yes, You can also visit our office currently we have our office in 15+ countrie. Our headquater is located in Bangalore, India. Our worls's best and fully advanced animal hospital is in Los Angeles, CA",
     },
     {
       id: 5,
       question: "Can I contact to the team in weekends or holidays ?",
       answer:
-        "Yes, our team is working 365 days and 24x7 hrs. We fully try to save each and every life. Whatever the possible things we can do, we will do.",
+        "Yes, Wildlife Nexus's team is working 365 days and 24x7 hrs. We fully try to save each and every life. Whatever the possible things we can do, we will do.",
     },
     {
       id: 6,

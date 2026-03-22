@@ -41,7 +41,7 @@ const Dashboard = () => {
               Welcome To
             </h1>
             <h1 className="text-xl text-center text-[#44A194] font-heading font-bold md:text-3xl">
-              Guardians Of Wildlife
+              Wildlife Nexus
             </h1>
           </div>
         </div>

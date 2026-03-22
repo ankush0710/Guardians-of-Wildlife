@@ -7,7 +7,6 @@ import { FaXmark } from "react-icons/fa6";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [active, setActive] = useState(false);
 
   return (
     <>
@@ -36,7 +35,7 @@ const Navbar = () => {
           <NavLink to="/">
             <div id="nav-logo" className="flex flex-col justify-center">
               <h1 className="font: font-heading font-semibold text-white text-xl text-center">
-                Guardians Of Wildlife.
+                Wildlife Nexus
               </h1>
               <p className="font: font-body font-medium text-white text-xs text-center">
                 Protect Wildlife, Preserve Life
@@ -127,15 +126,6 @@ const Navbar = () => {
             >
               BLOGS
             </Link>
-            {/* <Link
-              className="font: font-body text-white text-2xl font-medium hover:text-[#ECE7D1]"
-              to="/about-us"
-              onClick={() => {
-                setIsOpen(false);
-              }}
-            >
-              ABOUT US
-            </Link> */}
             <Link
               className="font: font-body text-white text-2xl font-medium hover:text-[#ECE7D1]"
               to="/contact-us"

@@ -7,14 +7,16 @@ const Footer = () => {
     <>
       <footer className="bg-[#111F35] max-w-screen flex flex-col justify-center gap-10 py-18">
         {/* Website name appears in the middle section */}
-        <div id="footer-logo" className="flex flex-col justify-center">
+        <section id="footer-logo">
+          <div id="footer-logo" className="flex flex-col justify-center">
           <h1 className="font-heading font-semibold text-white text-2xl text-center">
-            Guardians Of Wildlife.
+            Wildlife Nexus
           </h1>
           <p className="font-body font-medium text-white text-sm text-center">
             Protect Wildlife, Preserve Life
           </p>
         </div>
+        </section>
 
         {/* quote line for the website section*/}
         <div
@@ -31,7 +33,8 @@ const Footer = () => {
         </div>
 
         {/* Socal media links section  */}
-        <div
+        <section id="social-media">
+          <div
           id="social-media"
           className="flex flex-col justify-center items-center gap-4"
         >
@@ -65,12 +68,15 @@ const Footer = () => {
             </a>
           </div>
         </div>
+        </section>
 
           {/* pages links and message form  */}
-        <div className="md:flex md:justify-around md:px-10 md:overflow-x-hidden md:items-center">
+        <section id="pages-links">
+             <div className="md:flex md:justify-around md:px-10 md:overflow-x-hidden md:items-center">
           {/* all pages link section  */}
           <div id="container" className="flex justify-around gap-10 flex-1">
-            <div
+            <section id="pages">
+              <div
               id="pages-container"
               className="flex flex-col gap-4 text-start"
             >
@@ -100,15 +106,17 @@ const Footer = () => {
                 </ul>
               </div>
             </div>
+            </section>
 
             {/* queries details for contact  */}
-            <div id="queries" className="text-start">
+            <section id="queries">
+              <div className="text-start">
               <h1 className="font-heading text-2xl text-white font-semibold">
                 Queries
               </h1>
               <p className="font-body text-white text-sm pt-3">Mail us at: </p>
               <span className="font-body text-white text-xs">
-                example@guardiansofwildlife.org
+                example@wildlifenexus.org
               </span>
               <p className="font-body text-white text-sm pt-4">Call us at: </p>
               <span className="font-body text-white text-xs">
@@ -116,14 +124,15 @@ const Footer = () => {
               </span>
               <p className="font-body text-white text-sm pt-4">For Media:</p>
               <span className="font-body text-white text-xs">
-                media@guardiansofwildlife.org
+                media@wildlifenexus.org
               </span>
             </div>
+            </section>
           </div>
 
           {/* Form for leave message  */}
-          <div
-            id="message-form"
+        <section id="message-form">
+            <div
             className="bg-[#213C51] rounded-xl flex flex-col pt-10 pb-15 px-10 mx-6 mt-10 md:w-auto lg:w-2xl"
           >
             <form action="">
@@ -198,12 +207,15 @@ const Footer = () => {
               </div>
             </form>
           </div>
+        </section>
         </div>
+        </section>
 
         {/* terms and condition  */}
-        <div id="terms_condition">
+        <section id="terms-condition">
+          <div id="terms_condition">
           <p className="font-body text-white text-sm text-center py-4 md:mt-10">
-            &copy; {new Date().getFullYear()} Guardians of Wildlife. All rights
+            &copy; {new Date().getFullYear()} Wildlife Nexus. All rights
             reserved.
           </p>
           <div className="flex gap-3 justify-center font-body text-white font-sm">
@@ -215,6 +227,7 @@ const Footer = () => {
             </p>
           </div>
         </div>
+        </section>
       </footer>
     </>
   );
