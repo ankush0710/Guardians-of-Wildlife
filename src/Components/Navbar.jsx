@@ -17,16 +17,16 @@ const Navbar = () => {
             : "relative z-20 opacity-50 bg-[#111F35] w-80 py-3 px-6 rounded-full mx-auto my-10 hover:opacity-100 md:w-2xl md:px-10"
         }
       >
-        <div id="navbar" className="flex justify-between items-center">
+        <div data-testid="navbar" className="flex justify-between items-center">
           {/* left side nav links  */}
           <div
-            id="nav-links-left"
+            data-testid="nav-links-left"
             className="hidden lg:flex items-center gap-4"
           >
-            <NavLink to="/" className={({isActive})=>isActive?'font: font-body text-white underline underline-offset-4 text-md hover:text-[#ECE7D1]':'font: font-body text-white text-sm hover:text-[#ECE7D1]'}>
+            <NavLink data-testid="home" to="/" className={({isActive})=>isActive?'font: font-body text-white underline underline-offset-4 text-md hover:text-[#ECE7D1]':'font: font-body text-white text-sm hover:text-[#ECE7D1]'}>
               HOME
             </NavLink>
-            <NavLink to="/Program" className={({isActive})=>isActive?'font: font-body text-white underline underline-offset-4 text-md hover:text-[#ECE7D1]':'font: font-body text-white text-sm hover:text-[#ECE7D1]'}>
+            <NavLink data-testid="program" to="/Program" className={({isActive})=>isActive?'font: font-body text-white underline underline-offset-4 text-md hover:text-[#ECE7D1]':'font: font-body text-white text-sm hover:text-[#ECE7D1]'}>
               PROGRAM
             </NavLink>
           </div>
@@ -45,13 +45,13 @@ const Navbar = () => {
 
           {/* right side nav links  */}
           <div
-            id="navlinks-right"
+            data-testid="navlinks-right"
             className="hidden lg:flex items-center gap-4"
           >
-            <NavLink to="/join-our-team" className={({isActive})=>isActive?'font: font-body text-white underline underline-offset-4 text-md hover:text-[#ECE7D1]':'font: font-body text-white text-sm hover:text-[#ECE7D1]'}>
+            <NavLink data-testid="join-our-team" to="/join-our-team" className={({isActive})=>isActive?'font: font-body text-white underline underline-offset-4 text-md hover:text-[#ECE7D1]':'font: font-body text-white text-sm hover:text-[#ECE7D1]'}>
               JOIN OUR TEAM
             </NavLink>
-            <NavLink to="/contact-us" className={({isActive})=>isActive?'font: font-body text-white underline underline-offset-4 text-md hover:text-[#ECE7D1]':'font: font-body text-white text-sm hover:text-[#ECE7D1]'}>
+            <NavLink data-testid="contact-us" to="/contact-us" className={({isActive})=>isActive?'font: font-body text-white underline underline-offset-4 text-md hover:text-[#ECE7D1]':'font: font-body text-white text-sm hover:text-[#ECE7D1]'}>
              CONTACT US
             </NavLink>
           </div>
