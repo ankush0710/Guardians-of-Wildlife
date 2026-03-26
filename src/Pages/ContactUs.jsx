@@ -48,8 +48,6 @@ const ContactUs = () => {
     },
   ];
 
-  const [isSubmit, setIsSubmit] = useState(false);
-
   // This method is used to capture the input field
   const initialValues = {
     firstName: "",
@@ -82,10 +80,10 @@ const ContactUs = () => {
     console.log("Contact Form Value:", values);
 
     setTimeout(() => {
-      toast.success("Form submitting successfully");
+      toast.success("Form submitted successfully");
       resetForm();
       setSubmitting(false);
-    }, 1000);
+    }, 2000);
   };
 
   return (
@@ -187,14 +185,14 @@ const ContactUs = () => {
         >
           {({ isValid, dirty, isSubmitting }) => (
             <div
-              id="contact-form-container"
+              data-testid="contact-form-container"
               className="relative mt-10 md:flex-1"
             >
               <h1 className="font-heading text-3xl font-bold text-center">
                 Contact Us
               </h1>
               <div
-                id="contact-form"
+                data-testid="contact-form"
                 className="bg-[#BED4CB] rounded-xl flex flex-col py-15 px-10 mx-3 my-10 relative md:w-auto lg:w-2xl md:shadow-lg"
               >
                 <Form>
@@ -204,7 +202,7 @@ const ContactUs = () => {
                       <Field
                         type="text"
                         name="firstName"
-                        id="firstName"
+                        data-testid="firstName"
                         className="block py-2.5 px-0 w-full text-md bg-transparent border-0 border-b-2 border-default-medium border-[#8A7650] appearance-none focus:outline-none focus:ring-0 focus:border-[#562F00] peer"
                         placeholder=""
                       />
@@ -226,7 +224,7 @@ const ContactUs = () => {
                       <Field
                         type="text"
                         name="lastName"
-                        id="lastName"
+                        data-testid="lastName"
                         className="block py-2.5 px-0 w-full text-md bg-transparent border-0 border-b-2 border-default-medium border-[#8A7650] appearance-none focus:outline-none focus:ring-0 focus:border-[#562F00] peer"
                         placeholder=""
                       />
@@ -249,7 +247,7 @@ const ContactUs = () => {
                     <Field
                       type="email"
                       name="email"
-                      id="email"
+                      data-testid="email"
                       className="block py-2.5 px-0 w-full text-md bg-transparent border-0 border-b-2 border-default-medium border-[#8A7650] appearance-none focus:outline-none focus:ring-0 focus:border-[#562F00] peer"
                       placeholder=""
                     />
@@ -271,7 +269,7 @@ const ContactUs = () => {
                     <Field
                       type="text"
                       name="contactNumber"
-                      id="contactNumber"
+                      data-testid="contactNumber"
                       className="block py-2.5 px-0 w-full text-md bg-transparent border-0 border-b-2 border-default-medium border-[#8A7650] appearance-none focus:outline-none focus:ring-0 focus:border-[#562F00] peer"
                       onInput={(e) =>
                         (e.target.value = e.target.value.replace(/[^0-9]/g, ""))
@@ -295,7 +293,7 @@ const ContactUs = () => {
                   <div className="relative z-0 w-full mb-5 mt-3 group">
                     <Field
                       as="textarea"
-                      id="message"
+                      data-testid="message"
                       name="message"
                       rows="4"
                       className="bg-neutral-secondary-medium border-2 border-default-medium border-[#8A7650] text-md text-[#562F00] text-semibold trounded-base focus:ring-brand focus:outline-none focus:border-[#562F00] block w-full p-3.5 shadow-xs placeholder:text-body"
@@ -311,7 +309,7 @@ const ContactUs = () => {
                   {/* checkbox for terms and condition  */}
                   <div className="flex items-start mb-4 mt-3">
                     <Field
-                      id="default-checkbox"
+                      data-testid="default-checkbox"
                       type="checkbox"
                       name="terms"
                       className="w-8 h-8 border-2 border-[#562F00] rounded-xs"
@@ -331,9 +329,10 @@ const ContactUs = () => {
                     />
                   </div>
 
-                  {/* form submitt button  */}
+                  {/* form submit button  */}
                   <div className="absolute right-0 px-10">
                     <button
+                      data-testid="button"
                       type="submit"
                       disabled={!(isValid && dirty) || isSubmitting}
                       className={`px-8 py-2 rounded-full font-semibold border-2 
@@ -354,7 +353,7 @@ const ContactUs = () => {
 
         {/* this successfull message will pop-up when form is submitted  */}
         {/* //Tost message when the user click on submitt */}
-        <ToastContainer position="top-right" autoClose={3000} />
+        <ToastContainer data-testid="form-submitt-msg" position="top-right" autoClose={3000} />
       </div>
 
       {/* line for seperation  */}
