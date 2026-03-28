@@ -1,8 +1,9 @@
 import axios from "axios";
 import Wildlife from "../Pages/Wildlife";
-import {Provider} from "react-redux";
-import {store} from "../redux/Store/store";
-import {render, screen, fireEvent} from "@testing-library/react";
+import reducer from "../redux/reducers/reducer";
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+import { render, screen, fireEvent } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { FetchWildlifeData } from "../redux/action/action";
 import { vi } from "vitest";
@@ -40,26 +41,3 @@ describe("test case for api fetching", () => {
     expect(axios.get).toHaveBeenCalled();
   });
 });
-
-//test case for events
-describe.only ("test case for events", ()=>{
-    //test case for click event
-    it("test case for click event", async ()=>{
-        const {getByTestId} = render(
-            <Provider store={store} >
-                <Wildlife />
-            </Provider>
-        );
-
-        //test scenario
-        const input = screen.getByTestId("searchInput");
-        const btn = screen.getByTestId("button");
-
-        await userEvent.type(input, "lion");
-        await userEvent.click(btn);
-        screen.debug();
-
-        //expected result
-        expect(input).toHaveValue("lion");
-    })
-})

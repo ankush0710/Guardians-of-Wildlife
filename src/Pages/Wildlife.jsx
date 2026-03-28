@@ -172,7 +172,6 @@ const Wildlife = () => {
             {/* dropdown for filter the cards by species  */}
             <div className="relative flex flex-col justify-center items-center">
               <div
-                data-testid="filterSearchBox"
                 onClick={() => setIsHidden(!isHidden)}
                 className="bg-gray-300 flex items-center gap-8 px-5 py-2 border border-gray-500 cursor-pointer"
               >
