@@ -5,7 +5,7 @@ import App from './App.jsx'
 
 //import store, provider and RouteBrowser
 import { Provider } from 'react-redux';
-import { store } from './redux/Store/store';
+import { store } from './redux/store.js';
 import { BrowserRouter } from 'react-router-dom';
 
 
