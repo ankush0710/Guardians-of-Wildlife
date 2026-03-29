@@ -17,7 +17,7 @@ const initialState = {
       id: 1,
       title: "Who We Are ?",
       description:
-        "Wildlife Nexus is an organization work as a dedicated steward focused on preserving biodiversity, safeguarding endangered species, and managing natural habitats against threats like poaching and climate change across the world. We continously working to protect our wildlife, our forest, our ecosystem as the human. ",
+        "Wildlife Nexus is an organization work as a dedicated steward focused on preserving biodiversity, safeguarding endangered species, and managing natural habitats against threats like poaching and climate change across the world. We continously working to protect our wildlife, our forest, our ecosystem as the human. We are on a mission to protect and save as possible as many wildlife species. We are working for this mission since pasts 20 years. Till Now we have saved over 200 different species of wildlife (Including animal, birds and marine species) and we not only bound to save wildlife but also we protect the nature and take appropriate action towards the illigal activities. Our moto is 'Protect Wildlife, Peserve Life'. We believe that 'as human, animals has also right to live their life' and for these we work relentlessly towards the Wildlife conservation.",
       image:
         "https://cdn.pixabay.com/photo/2024/05/23/10/41/dear-8782915_640.jpg",
     },
@@ -25,7 +25,7 @@ const initialState = {
       id: 2,
       title: "What We Serve ?",
       description:
-        "We serve as an Wildlife Nexus where we protect the plants and animal species as wildlife is a integral to the world's ecosystems, providing balance and stability to the nature's processes. National and international organizations like the World Wildlife Fund, Conservation International, the Wildlife Conservation Society, the United Nations and National Geographic itself work to support global animal and habitat conservation efforts on many different fronts.They work with the government to establish and protect public lands, like national parks and wildlife refuges.s. They help write legislation, such as the Endangered Species Act (ESA) of 1973 in the United States, to protect various species.",
+        "We serve as an Wildlife Nexus where we protect the plants and animal species as wildlife is a integral to the world's ecosystems, providing balance and stability to the nature's processes. National and international organizations like the World Wildlife Fund, Conservation International, the Wildlife Conservation Society, the United Nations and National Geographic itself work to support global animal and habitat conservation efforts on many different fronts.They work with the government to establish and protect public lands, like national parks and wildlife refuges. They help write legislation, such as the Endangered Species Act (ESA) of 1973 in the United States, to protect various species. We also motivate peoples to join with us and take a step to protect wildlife and nature. These will not benefit for us but also our future generation will know the impotance of wildlife conservation.",
       image:
         "https://cdn.pixabay.com/photo/2018/10/12/11/33/eagle-3741968_1280.jpg",
     },
