@@ -52,7 +52,8 @@ The purpose of creating this application is to motivate and awaken people to tak
 - **Form**: Formik  
 - **Form Validation**: Yup Library  
 - **API Calls**: axios (For fetch api)  
-- **Unit Testing**: Vitest + React Testing-library  
+- **Unit Testing**: Vitest + React Testing-library
+- **Hosting**: Netlify  
 
 
 ## Installation
