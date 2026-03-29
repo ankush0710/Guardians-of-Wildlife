@@ -51,7 +51,8 @@ The purpose of creating this application is to motivate and awaken people to tak
 - **Styling**: TailwindCSS  
 - **Form**: Formik  
 - **Form Validation**: Yup Library  
-- **API Calls**: axios (For fetch api) **Unit Testing**: Vitest + React Testing-library  
+- **API Calls**: axios (For fetch api)  
+- **Unit Testing**: Vitest + React Testing-library  
 
 
 ## Installation
